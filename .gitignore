@@ -1,0 +1,4 @@
+*.diff
+.terraform*
+terraform.*
+workerKey*
