@@ -21,8 +21,8 @@ variable ingress_data {
 variable egress_data {
   description = "The security groups outbound rules."
   type = map(object({description = string, cidr_blocks = list(string), ipv6_cidr_blocks = list(string)}))
-    443 = { description = "Outbound HTTPS rule", cidr_blocks = [ "0.0.0.0/0" ], ipv6_cidr_blocks = ["::/0"] }
   default = {
+    443 = { description = "Outbound HTTPS rule", cidr_blocks = [ "0.0.0.0/0" ], ipv6_cidr_blocks = ["::/0"] }
   }
 }
 # ####################################################################

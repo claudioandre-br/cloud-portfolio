@@ -9,7 +9,7 @@ yum -y install stress
 
 REGION=`curl http://169.254.169.254/latest/dynamic/instance-identity/document|grep region|awk -F\" '{print $4}'`
 
-export PHOTOS_BUCKET=${SUB_PHOTOS_BUCKET}
+export PHOTOS_BUCKET=employee-photo-bucket-cl #TODO bucked-id.
 export AWS_DEFAULT_REGION=${REGION}
 export DYNAMO_MODE=on
 FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80

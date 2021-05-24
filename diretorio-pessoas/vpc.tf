@@ -51,5 +51,17 @@ module "vpc" {
 
   database_subnet_tags = {
     Name = "app-DB-Subnet"
-  }  
+  }
+
+  private_route_table_tags = {
+    Name = "app-routetable-private"
+  }
+
+  public_route_table_tags = {
+    Name = "app-routetable-public"
+  }
+
+  database_route_table_tags = {
+    Name = "app-routetable-DB"
+  }
 }

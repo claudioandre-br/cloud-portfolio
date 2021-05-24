@@ -4,7 +4,7 @@
 
 Este repositório foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar ou demonstrar boas práticas em Cloud. Serve, ainda, como um portfólio de soluções que eu desevolvi ou adaptei de fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
 
-# Table of Contents
+# Índice
 1. [Aplicações](#aplicações)
 7. [Package Security](#security)
 8. [License](#license)

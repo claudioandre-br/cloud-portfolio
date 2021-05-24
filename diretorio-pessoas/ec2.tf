@@ -45,6 +45,11 @@ data "aws_ami" "amazon-linux-2" {
   owners = ["amazon"] # Images owned by Canonical
 }
 
+resource "aws_iam_instance_profile" "profile" {
+  name = aws_iam_role.role.name
+  role = aws_iam_role.role.name
+}
+
 resource "aws_instance" "worker" {
   ami                    = data.aws_ami.amazon-linux-2.id
   subnet_id              = module.vpc.public_subnets.0
@@ -52,7 +57,7 @@ resource "aws_instance" "worker" {
   instance_type          = var.instance["instance_type"]
   vpc_security_group_ids = [aws_security_group.webserver-sg.id]
   count                  = "${var.spot != "yes" ? var.instance["count"] : 0}"
-  iam_instance_profile   = "S3DynamoDBFullAccessRole"
+  iam_instance_profile   = aws_iam_instance_profile.profile.name
 
   associate_public_ip_address = true
 
@@ -60,6 +65,7 @@ resource "aws_instance" "worker" {
     cpu_credits = "standard"
   }
 
+/*            **** Not in use ****
   # The connection uses the local SSH agent for authentication.
   connection {
     user        = "ec2-user"
@@ -74,7 +80,7 @@ resource "aws_instance" "worker" {
       "cd ~",
       "ls -lah"
     ]
-  }
+  } */
 
   # Security group rule must be created before this IP address could
   # actually be used, otherwise the services will be unreachable.

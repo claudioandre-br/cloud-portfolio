@@ -1,0 +1,60 @@
+######################################################################
+# Copyright (c) 2021 Claudio André <claudioandre.br at gmail.com>
+#
+# This program comes with ABSOLUTELY NO WARRANTY; express or implied.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, as expressed in version 2, seen at
+# http://www.gnu.org/licenses/gpl-2.0.html
+######################################################################
+
+data "aws_caller_identity" "current" {}
+
+variable "bucket-name" {
+  type = string
+  description = "The bucket name; MUST be unique."
+  default = "employee-photo-bucket-cl" # TODO bucked-id.
+}
+
+resource "aws_s3_bucket_public_access_block" "block-public" {
+  bucket = aws_s3_bucket.bucket.id
+
+  block_public_acls   = true
+  block_public_policy = true
+  ignore_public_acls = true
+  restrict_public_buckets = true
+}
+
+resource "aws_s3_bucket" "bucket" {
+  bucket =  var.bucket-name
+  depends_on = [aws_iam_role.role]
+
+  # Terraform's "jsonencode" converts to valid JSON syntax.
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "AllowS3ReadAccess",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/EC2S3DynamoDBFullAccessRole"
+        },
+        "Action": "s3:*",
+        "Resource": [
+          "arn:aws:s3:::${var.bucket-name}",
+          "arn:aws:s3:::${var.bucket-name}/*"
+        ]
+      }
+    ]
+  })
+
+  tags = {
+    Name        = "employee-directory-app-s3"
+    Environment = var.domain
+    "Application Role" = var.role
+    Owner = var.owner
+    Customer = var.customer
+    Confidentiality = var.confidentiality
+  }
+}
