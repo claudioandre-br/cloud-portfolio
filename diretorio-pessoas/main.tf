@@ -28,7 +28,7 @@ locals {
 # Save terraform state remotely (if needed).
 /* terraform {
   backend "s3" {
-    bucket = "jtrcrackers-tfstate"
+    bucket = "MyApp-tfstate"
     key    = "sg/terraform.state"
     region = var.region
     profile = var.profile

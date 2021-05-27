@@ -9,20 +9,24 @@
 # http://www.gnu.org/licenses/gpl-2.0.html
 ######################################################################
 
-resource "aws_dynamodb_table" "dynamodb-table" {
-  name           = "Employees"
-  billing_mode   = "PROVISIONED"
-  read_capacity  = 5
-  write_capacity = 5
-  hash_key       = "id"
+resource "aws_cloudwatch_metric_alarm" "alarm" {
+  alarm_name                = "Employee App CPU Util"
+  comparison_operator       = "GreaterThanThreshold"
+  evaluation_periods        = "1"
+  metric_name               = "CPUUtilization"
+  namespace                 = "AWS/EC2"
+  period                    = "300"
+  statistic                 = "Average"
+  threshold                 = "60"
+  alarm_description         = "Monitors ec2 cpu utilization by Employee Directory App."
+  insufficient_data_actions = []
 
-  attribute {
-    name = "id"
-    type = "S"
+  dimensions= {
+    InstanceId = aws_instance.worker.0.id
   }
 
   tags = {
-    Name = "dynDB-Employees"
+    Name = "alrm-employee-app-CPU-util"
     Environment = var.domain
     "Application Role" = var.role
     Owner = var.owner

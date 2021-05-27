@@ -30,6 +30,9 @@ resource "aws_s3_bucket" "bucket" {
   bucket =  var.bucket-name
   depends_on = [aws_iam_role.role]
 
+  # Terraform will delete all of the objects in the bucket for you. ## BE CAREFUL ##
+  force_destroy = true
+
   # Terraform's "jsonencode" converts to valid JSON syntax.
   policy = jsonencode({
     "Version": "2012-10-17",
@@ -50,7 +53,7 @@ resource "aws_s3_bucket" "bucket" {
   })
 
   tags = {
-    Name        = "employee-directory-app-s3"
+    Name        = "s3-employee-directory-app"
     Environment = var.domain
     "Application Role" = var.role
     Owner = var.owner

@@ -9,24 +9,30 @@
 # http://www.gnu.org/licenses/gpl-2.0.html
 ######################################################################
 
-output current_environment {
+# You can create varios envirnoments (e.g., PROD, DEV, TEST)
+output "_010-current_environment" {
   value = local.run_env
 }
 
-output "ip_address" {
-  value = "${aws_instance.worker.*.public_ip}"
-  description = "The IP address(es) of the instance(s)."
-}
-
 # VPC
-output "vpc_id" {
+output "_020-vpc_id" {
   description = "The ID of the VPC"
   value       = module.vpc.vpc_id
 }
 
-output "vpc_cidr_block" {
+output "_030-vpc_cidr_block" {
   description = "The CIDR block of the VPC"
   value       = module.vpc.vpc_cidr_block
+}
+
+output "_040-web_server_count" {
+  description = "Number of web servers provisioned"
+  value       = length(aws_instance.worker)
+}
+
+output "_050-ip_addresses" {
+  value = "${aws_instance.worker.*.public_ip}"
+  description = "The IP address(es) of the instance(s)."
 }
 
 # Subnets
@@ -47,7 +53,7 @@ output "nat_public_ips" {
 } */
 
 # AZs
-output "azs" {
+output "_060-AZs" {
   description = "List of availability zones"
   value       = module.vpc.azs
 }

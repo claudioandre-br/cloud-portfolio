@@ -27,6 +27,15 @@ resource "aws_iam_role" "role" {
 
   assume_role_policy = data.aws_iam_policy_document.assume-role-policy.json
   managed_policy_arns = [aws_iam_policy.policy.arn]
+
+  tags = {
+    Name = "role-EC2S3DynamoDBFullAccessRole"
+    Environment = var.domain
+    "Application Role" = var.role
+    Owner = var.owner
+    Customer = var.customer
+    Confidentiality = var.confidentiality
+  }
 }
 
 resource "aws_iam_policy" "policy" {
@@ -150,6 +159,7 @@ resource "aws_iam_policy" "policy" {
   })
 
   tags = {
+    Name = "pol-S3DynamoDBFullAccessRole"
     Environment = var.domain
     "Application Role" = var.role
     Owner = var.owner

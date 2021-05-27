@@ -89,7 +89,7 @@ resource "aws_instance" "worker" {
   user_data = "${file("start-up.sh")}"
 
   tags = {
-    Name = "employee-directory-app${count.index + 1}-instance"
+    Name = "i-employee-directory-app${count.index + 1}"
     Environment = var.domain
     "Application Role" = var.role
     Owner = var.owner

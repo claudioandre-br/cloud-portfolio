@@ -38,7 +38,7 @@ resource "aws_security_group" "webserver-sg" {
   }
 
   tags = {
-    Name = "web-security-group"
+    Name = "sg-web-servers"
     Environment = var.domain
     "Application Role" = var.role
     Owner = var.owner
