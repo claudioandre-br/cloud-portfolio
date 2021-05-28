@@ -42,7 +42,7 @@ data "aws_ami" "amazon-linux-2" {
     name   = "architecture"
     values = ["x86_64"]
   }
-  owners = ["amazon"] # Images owned by Canonical
+  owners = ["amazon"]
 }
 
 resource "aws_iam_instance_profile" "profile" {
@@ -50,7 +50,7 @@ resource "aws_iam_instance_profile" "profile" {
   role = aws_iam_role.role.name
 }
 
-resource "aws_instance" "worker" {
+resource "aws_instance" "web-server" {
   ami                    = data.aws_ami.amazon-linux-2.id
   subnet_id              = module.vpc.public_subnets.0
   key_name               = aws_key_pair.deploy.key_name
@@ -64,23 +64,6 @@ resource "aws_instance" "worker" {
   credit_specification {
     cpu_credits = "standard"
   }
-
-/*            **** Not in use ****
-  # The connection uses the local SSH agent for authentication.
-  connection {
-    user        = "ec2-user"
-    type        = "ssh"
-    host        = self.public_ip
-    private_key = local.private_key_content
-  }
-
-  # If you want to check if everything is Ok.
-  provisioner "remote-exec" {
-    inline = [
-      "cd ~",
-      "ls -lah"
-    ]
-  } */
 
   # Security group rule must be created before this IP address could
   # actually be used, otherwise the services will be unreachable.

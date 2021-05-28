@@ -21,9 +21,9 @@ module "vpc" {
   database_subnets = ["10.1.21.0/24", "10.1.22.0/24"]
 
   create_igw = true
-  map_public_ip_on_launch = false
+  map_public_ip_on_launch = true
 
-  create_database_subnet_route_table    = true
+  create_database_subnet_route_table = true
 
   tags = {
     Environment = var.domain

@@ -9,24 +9,6 @@
 # http://www.gnu.org/licenses/gpl-2.0.html
 ######################################################################
 
-#      ###############################################################
-variable ingress_data {
-  description = "The security groups inbound rules."
-  type = map(object({description = string, cidr_blocks = list(string)}))
-  default = {
-    80 = { description = "Inbound HTTP rule", cidr_blocks = [ "0.0.0.0/0" ] }
-  }
-}
-
-variable egress_data {
-  description = "The security groups outbound rules."
-  type = map(object({description = string, cidr_blocks = list(string), ipv6_cidr_blocks = list(string)}))
-  default = {
-    443 = { description = "Outbound HTTPS rule", cidr_blocks = [ "0.0.0.0/0" ], ipv6_cidr_blocks = ["::/0"] }
-  }
-}
-# ####################################################################
-
 # Create terraform workspaces (to choose accounts/regions to use). ###
 # For example, to use a different IAM account or region, use the 'testing' workspace.
 # $ terraform workspace new    testing
@@ -93,7 +75,7 @@ locals {
 variable instance {
   type = object({instance_type = string, count = number})
   default = {
-    instance_type = "t2.micro", count = 1
+    instance_type = "t2.micro", count = 0
   }
 }
 # ####################################################################
@@ -126,6 +108,15 @@ variable "spot_price" {
 }
 # ####################################################################
 
+# TODO ###############################################################
+# Set your Spot preferences.
+variable admin_email {
+  type = string
+  default = "claudioandre.br@gmail.com"
+}
+# ####################################################################
+
+# Tags ###############################################################
 variable domain {
   type = string
   default = "HR"

@@ -11,6 +11,7 @@
 
 resource "aws_cloudwatch_dashboard" "dashboard" {
   dashboard_name = "My-Dashboard"
+  count = "${var.instance["count"] != 0 ? 1 : 0}"
 
   dashboard_body = <<EOF
 {
@@ -29,7 +30,7 @@ resource "aws_cloudwatch_dashboard" "dashboard" {
             "AWS/EC2",
             "CPUUtilization",
             "InstanceId",
-            "${aws_instance.worker.0.id}"
+            "${aws_instance.web-server.0.id}"
           ]
         ],
         "region": "${local.region}",

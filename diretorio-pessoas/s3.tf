@@ -13,8 +13,14 @@ data "aws_caller_identity" "current" {}
 
 variable "bucket-name" {
   type = string
-  description = "The bucket name; MUST be unique."
+  description = "The app bucket name; MUST be unique."
   default = "employee-photo-bucket-cl" # TODO bucked-id.
+}
+
+variable "logs-name" {
+  type = string
+  description = "The logs bucket name; MUST be unique."
+  default = "logs-apps-internal" # TODO bucked-id.
 }
 
 resource "aws_s3_bucket_public_access_block" "block-public" {
@@ -54,6 +60,61 @@ resource "aws_s3_bucket" "bucket" {
 
   tags = {
     Name        = "s3-employee-directory-app"
+    Environment = var.domain
+    "Application Role" = var.role
+    Owner = var.owner
+    Customer = var.customer
+    Confidentiality = var.confidentiality
+  }
+}
+
+resource "aws_s3_bucket" "logs" {
+  bucket =  var.logs-name
+
+  # Terraform will delete all of the objects in the bucket for you. ## BE CAREFUL ##
+  force_destroy = true
+
+  # Terraform's "jsonencode" converts to valid JSON syntax.
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+          "Sid": "AWSConsoleStmt-1622223213824",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "arn:aws:iam::127311923021:root"
+          },
+          "Action": "s3:PutObject",
+          "Resource": "arn:aws:s3:::${var.logs-name}/AWSLogs/${data.aws_caller_identity.current.account_id}/*"
+      },
+      {
+          "Sid": "AWSLogDeliveryWrite",
+          "Effect": "Allow",
+          "Principal": {
+              "Service": "delivery.logs.amazonaws.com"
+          },
+          "Action": "s3:PutObject",
+          "Resource": "arn:aws:s3:::${var.logs-name}/AWSLogs/${data.aws_caller_identity.current.account_id}/*",
+          "Condition": {
+              "StringEquals": {
+                  "s3:x-amz-acl": "bucket-owner-full-control"
+              }
+          }
+      },
+      {
+          "Sid": "AWSLogDeliveryAclCheck",
+          "Effect": "Allow",
+          "Principal": {
+              "Service": "delivery.logs.amazonaws.com"
+          },
+          "Action": "s3:GetBucketAcl",
+          "Resource": "arn:aws:s3:::${var.logs-name}"
+      }
+    ]
+  })
+
+  tags = {
+    Name        = "s3-logs"
     Environment = var.domain
     "Application Role" = var.role
     Owner = var.owner
