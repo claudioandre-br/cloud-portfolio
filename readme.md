@@ -19,10 +19,10 @@ Aplicação desenvolvida pela AWS Training. Clique no link para visualizar como 
 - Infraestrutura como código (Iac) foi usado;
 - O projeto implmenta alta disponibilidade via Application Load Balancer (ALB) em múltiplas AZs;
 - O projeto prevê segurança 'by design'.
-  - ~~Os servidores Web **NÃO** possuem IP público, todo acesso se dá via ALB;~~
+  - Os servidores Web **NÃO** possuem IP público, todo acesso se dá via ALB (requer NAT, que tem custo);
   - Os servidores Web aceitam conexões **APENAS** do ALB;
 - A aplicação acessa arquivos no S3, mas o S3 **NÃO** está com acesso público;
-- Logs de acesso salvos ao ALB da aplicação Web são salvos no S3 para auditoria.
+- Logs de acesso do ELB à aplicação Web são salvos no S3 para auditoria.
 
 ### Aplicação Demo II "Tô Pensando"
 
