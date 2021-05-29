@@ -19,11 +19,11 @@ Elegível para o nível gratuito. Elegible for the free tier.
 IMPORTANT: The total cost of your sessions on AWS will vary depending on your usage and whether you are outside the AWS Free Tier limits.
 
 ### Dependências
-[Terraform](http://www.terraform.io/downloads.html). A imagem Docker [claudioandre/john-cloud-tools](https://hub.docker.com/r/claudioandre/john-cloud-tools) usada nos exemplos abaixo já contém todas as dependências instaladas. Use-a:
+[Terraform](http://www.terraform.io/downloads.html). A imagem Docker [claudioandre/cloud-tool](https://hub.docker.com/r/claudioandre/cloud-tool) usada nos exemplos abaixo já contém todas as dependências instaladas. Use-a:
 
 ```bash
 cd PROJECT_FOLDER && \
-  docker run -it --rm -v $(pwd):/host/cloud-tools -v ~/.aws/:/home/cracker/.aws/:ro claudioandre/john-cloud-tools
+  docker run -it --rm -v $(pwd):/host/workdir -v ~/.aws/:/home/usr/.aws/:ro claudioandre/cloud-tool
 ```
 
 Dica: crie um _alias_ para o comando.
@@ -48,10 +48,10 @@ git clone https://github.com/claudioandre-br/cloud-portfolio.git cloud
 cd  cloud/diretorio-pessoas
 
 # The `-v` is to share content between host and Docker (Bind-mount a directory inside Docker)
-#   Current (project) folder   -v $(pwd):/host/cloud-tools
-#   AWS credentials            -v ~/.aws/:/home/cracker/.aws/:ro
+#   Current (project) folder   -v $(pwd):/host/workdir
+#   AWS credentials            -v ~/.aws/:/home/usr/.aws/:ro
 
-docker run -it --rm -v $(pwd):/host/cloud-tools -v ~/.aws/:/home/cracker/.aws/:ro claudioandre/john-cloud-tools
+docker run -it --rm -v $(pwd):/host/workdir -v ~/.aws/:/home/usr/.aws/:ro claudioandre/cloud-tool
 
 # Create disposable SSH credentials (to use inside docker).
 # You will not lose the key, it will be saved on the host machine due to Bind-mount (-v).
