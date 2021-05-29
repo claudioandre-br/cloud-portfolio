@@ -16,7 +16,7 @@ Este repositório foi criado para armazenar projetos-exemplo que sirvam para dis
 Aplicação desenvolvida pela AWS Training. Clique no link para visualizar como eu [implementei a solução](diretorio-pessoas#diretório-de-funcionários).
 
 #### Pontos a Destacar na Implementação
-- Infraestrutura como código (Iac) foi usado;
+- Infraestrutura como código (IaC) foi usado;
 - O projeto implmenta alta disponibilidade via Application Load Balancer (ALB) em múltiplas AZs;
 - O projeto prevê segurança 'by design'.
   - Os servidores Web **NÃO** possuem IP público, todo acesso se dá via ALB (requer NAT, que tem custo);
