@@ -13,4 +13,3 @@ export PHOTOS_BUCKET=employee-photo-bucket-cl #TODO bucked-id.
 export AWS_DEFAULT_REGION=${REGION}
 export DYNAMO_MODE=on
 FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
-

@@ -10,7 +10,7 @@
 ######################################################################
 
 resource "aws_cloudwatch_dashboard" "dashboard" {
-  dashboard_name = "My-Dashboard"
+  dashboard_name = "Instance-Dashboard"
   count = "${var.instance["count"] != 0 ? 1 : 0}"
 
   dashboard_body = <<EOF
@@ -35,6 +35,49 @@ resource "aws_cloudwatch_dashboard" "dashboard" {
         ],
         "region": "${local.region}",
         "title": "EC2 Instance CPU"
+      }
+    }
+  ]
+}
+EOF
+
+}
+
+resource "aws_cloudwatch_dashboard" "asg-dashboard" {
+  dashboard_name = "Dashboard"
+
+  dashboard_body = <<EOF
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "view":"timeSeries",
+        "stacked":false,
+        "metrics": [
+          [
+            "AWS/EC2",
+            "CPUUtilization",
+            "AutoScalingGroupName",
+            "${aws_autoscaling_group.app-asg.name}"
+          ]
+        ],
+        "region": "${local.region}",
+        "title": "Auto Scaling CPU Usage"
+      }
+    },
+    {
+      "type": "text",
+      "x": 0,
+      "y": 7,
+      "width": 3,
+      "height": 3,
+      "properties": {
+        "markdown": "Testing"
       }
     }
   ]

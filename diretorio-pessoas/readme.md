@@ -1,12 +1,13 @@
 # Diretório de Funcionários
 
-Aplicação criada pelo time de treinamento AWS para demonstrar como utilizar a AWS. Adaptei para uso via IaC (infra as Code).
+Aplicação criada pelo time de treinamento AWS para demonstrar como utilizar a AWS. Adaptei para uso via IaC (Infra as Code).
 
 Deve ser possível testar este ambiente na sua conta sem alterações. Contudo, como o nome do bucket deve ser exclusivo na AWS, se outra pessoa já estiver usando o nome que eu coloquei nos arquivos `.tf`, você terá que alterar o nome do bucket; faça isto nos dois arquivos abaixo:
 
 ```bash
 $ grep -Ri bucked-id
 s3.tf:  default = "employee-photo-bucket-cl" # TODO bucked-id.
+s3.tf:  default = "logs-apps-internal" # TODO bucked-id.
 start-up.sh:export PHOTOS_BUCKET=employee-photo-bucket-cl #TODO bucked-id.
 ```
 
@@ -41,6 +42,10 @@ aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ## Exemplo de uso (testado em uma conta Vocareum a na minha conta pessoal)
 
 NÃO SE ESQUEÇA: garanta que o nome do bucket é único. Personalize-o, se necessário (veja acima no tópico [Diretório de Funcionários](#diretório-de-funcionários) como fazer isto).
+
+O uso de contas Vocareum é problemático:
+* Em minha conta AWS Educate eu não consigo criar Auto Scaling (_Error creating Auto Scaling Group: AccessDenied_).
+* Existem outras restrições no uso de Contas Vocareum (por exemplo, o erro _is not authorized to perform: iam:TagPolicy_).
 
 ```bash
 # Get the tool
