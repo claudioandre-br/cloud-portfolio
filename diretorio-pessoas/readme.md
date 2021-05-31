@@ -2,6 +2,8 @@
 
 Aplicação criada pelo time de treinamento AWS para demonstrar como utilizar a AWS. Adaptei para uso via IaC (Infra as Code).
 
+![ Diagrama de Arquitetura](demo-01.svg)
+
 Deve ser possível testar este ambiente na sua conta sem alterações. Contudo, como o nome do bucket deve ser exclusivo na AWS, se outra pessoa já estiver usando o nome que eu coloquei nos arquivos `.tf`, você terá que alterar o nome do bucket; faça isto nos dois arquivos abaixo:
 
 ```bash

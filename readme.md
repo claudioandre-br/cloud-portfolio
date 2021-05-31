@@ -5,7 +5,7 @@
 Este repositório foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar ou demonstrar boas práticas em Cloud. Serve, ainda, como um portfólio de soluções que eu desevolvi ou adaptei de fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
 
 # Índice
-1. [Aplicações](#aplicações)
+1. [Aplicação "Diretório de Funcionários"](#aplicação-demo-i-diretório-de-funcionários)
 7. [Package Security](#security)
 8. [License](#license)
 
@@ -14,6 +14,8 @@ Este repositório foi criado para armazenar projetos-exemplo que sirvam para dis
 ### Aplicação Demo I "Diretório de Funcionários"
 
 Aplicação desenvolvida pela AWS Training. Clique no link para visualizar como eu [implementei a solução](diretorio-pessoas#diretório-de-funcionários).
+
+[![ Diagrama de Arquitetura](diretorio-pessoas/demo-01.svg)](diretorio-pessoas#diretório-de-funcionários)
 
 #### Pontos a Destacar na Implementação
 - Infraestrutura como código (IaC) foi usado;
