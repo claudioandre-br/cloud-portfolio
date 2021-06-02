@@ -1,0 +1,17 @@
+graph TD
+    A1(Requisição<br>feita pelo<br>usuário root?)
+    A2(Permitido)
+
+    B1(Foi negado<br>explicitamente?)
+    B2(Explicit Deny)
+
+    C1(Foi permitido<br>explicitamente?)
+    C2(Permitido)
+    C3(Implicit Deny)
+
+    A1 -->|Sim| A2
+    A1 -->|Não| B1
+    B1 -->|Sim| B2
+    B1 -->|Não| C1
+    C1 -->|Sim| C2
+    C1 -->|Não| C3
