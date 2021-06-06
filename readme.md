@@ -51,15 +51,18 @@ Ou use uma GUI para te auxiliar a iniciar a jornada:
 Este tópico contém uma lista de cursos sobre AWS que eu fiz e recomendo. São cursos oficiais, desenvolvidos e produzidos pela própria AWS; em alguns casos, operacionalizados por instituições credenciadas (`instituições reconhecidas de ensino superior`), mas todo o material audiovisual é de autoria da AWS.
 
 - _AWS Training and Certification_
-  * AWS Cloud Practitioner Essentials (**ES PE TA CU LAR**)
+  * AWS Cloud Practitioner Essentials (**ES·PE·TA·CU·LAR**)
   * Getting Started with Cloud Acquisition
 
 - _Coursera_ fornecidos por Amazon Web Services
   * Introduction to AWS Identity and Access Management
+  * AWS Fundamentals: Going Cloud-Native
 
-  Via AWS Specialization
-  * AWS Cloud Technical Essentials
-  * (em andamento) AWS Fundamentals: Addressing Security Risk
+  Via "AWS Fundamentals Specialization":
+  * AWS Cloud Technical Essentials (muito interessante)
+  * AWS Fundamentals: Addressing Security Risk (deixa a desejar)
+  * AWS Fundamentals: Migrating to the Cloud
+  * AWS Fundamentals: Building Serverless Applications
 
 - _Instituto Federal de São Paulo (IFSP)_
   * (em andamento) AWS Academy Cloud Foundations (ACF)
