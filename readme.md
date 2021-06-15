@@ -2,12 +2,13 @@
 
 [![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](LICENSE)
 
-Este repositório foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar ou demonstrar boas práticas em Cloud. Serve, ainda, como um portfólio de soluções que eu desevolvi ou adaptei de fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
+Este repositório foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, aprender ou demonstrar boas práticas em Cloud. Serve, ainda, como um portfólio de soluções que eu desevolvi ou adaptei de fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
 
 # Índice
 1. [Aplicação "Diretório de Funcionários"](#aplicação-demo-i-diretório-de-funcionários)
+1. [Aplicação "Clima no Campus"](#aplicação-demo-ii-clima-no-campus)
 1. [AWS Identity and Access Management](#aws-identity-and-access-management-aws-iam)
-1. [Cursos que eu recomendo](#cursos-recomendados)
+1. [Cursos AWS que são um show](#cursos-recomendados)
 7. [Package Security](#security)
 8. [License](#license)
 
@@ -22,13 +23,26 @@ Aplicação desenvolvida pela AWS Training. Clique no link para visualizar como 
 #### Pontos a Destacar na Implementação
 - Infraestrutura como código (IaC) foi usado;
 - O projeto implementa alta disponibilidade via Application Load Balancer (ALB) em múltiplas AZs;
-- O projeto prevê segurança 'by design'.
+- O projeto prevê segurança 'by design';
   - Os servidores Web **NÃO** possuem IP público, todo acesso se dá via ALB (desabilitado: requer NAT, que tem custo);
   - Os servidores Web aceitam conexões **APENAS** do ALB;
 - A aplicação acessa arquivos no S3, mas o S3 **NÃO** está com acesso público;
 - Logs de acesso à aplicação Web (obtidos do ALB) são salvos no S3 para auditoria.
 
 Application Load Balancer (ALB) é um dos tipos de Elastic Load Balancer (ELB).
+
+### Aplicação Demo II "Clima no Campus"
+
+Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link para visualizar como eu [implementei a solução](serverless#serverless).
+
+[![ Diagrama de Arquitetura](serverless/demo-01.svg)](serverless#serverless)
+
+#### Pontos a Destacar na Implementação
+- Aplicação 100% serverless;
+- Implementa uma interface de conversação capaz de lidar com voz e texto;
+- O bot para interação é capaz de reconhecimento de fala e compreensão de linguagem natural;
+- Uso de CDN para melhorar a experiência no usuário;
+- O S3 **NÃO** está com acesso público (apenas o CloudFront pode acessar a origem).
 
 ### AWS Identity and Access Management (AWS IAM)
 
@@ -62,7 +76,7 @@ Este tópico contém uma lista de cursos sobre AWS que eu fiz e recomendo. São 
   * AWS Cloud Technical Essentials (muito interessante)
   * AWS Fundamentals: Addressing Security Risk (deixa a desejar)
   * AWS Fundamentals: Migrating to the Cloud
-  * AWS Fundamentals: Building Serverless Applications
+  * AWS Fundamentals: Building Serverless Applications (muito interessante)
 
 - _Instituto Federal de São Paulo (IFSP)_
   * (em andamento) AWS Academy Cloud Foundations (ACF)

@@ -1,0 +1,34 @@
+Bot: WeatherIFSPBot
+Intent: IFSPWeather
+Bucket: ifouclima (ifou o clima)
+
+
+Usado no Treinamento:
+Can I go outside
+Is it warm enough for me
+Can I go out in {campus_str}
+Should I wear booties in {campus_str}
+Will I stay dry in {campus_str}
+Should i wear a cold sweater to school
+Should i bring an umbrella
+How is the climate on campus {campus_str}
+
+
+Confirmação do entendimento:
+So you want to know what the weather is like on campus {campus_str}?
+Sorry, can you please repeat your initial question?
+
+
+Tags:
+Project: Clima no IFSP
+
+Para usar o site de voz, você precisa confiar na origem:
+- Chrome’s security policy will only allow you to access your device’s microphone/camera when a site’s has a secure origin
+
+Como o S3 não suporta https, vc precisa confiar no site "ifô u clima"
+
+No Chrome, acesse
+chrome://flags/#unsafely-treat-insecure-origin-as-secure
+
+E inclua o site
+http://ifouclima.s3-website-us-east-1.amazonaws.com (veja a imagem 'Alteração necessária na segurança do Chrome.png')
