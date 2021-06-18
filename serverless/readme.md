@@ -37,7 +37,7 @@ Obs: estou usando a conta Vocareum e eles são pessoas más, não gostam que a g
 
 [1] o acesso não devia ocorrer via S3 (ou seja, S3 não teria acesso público. Como ele é a origem, é função do arquiteto proteger/ocultar/resguardar).
 
-[2] eu criei um bot LEX, treinei com algumas perguntas, mas o reconhecimento de fala e compreensão de linguagem natural quem faz é o Chrome, os dados são enviados em texto para o bot, que interpreta e valida um texto.
+[2] eu criei um bot LEX, treinei com algumas perguntas, mas o reconhecimento de fala quem faz é o Chrome, os dados são enviados em texto para o bot, que interpreta via compreensão de linguagem natural e valida o texto.
 Aliás, o inglês da moça do Chrome é padrão Joel Santana. Ela não reconhece as cidades do Brasil, então, se alguém for testar, use Miami, Los Angeles, etc. Você deve perguntar em inglês ou só dizer o nome da cidade.
 
 [3] todo o acesso seria feito via CDN, sem acesso público ao S3. Mas a conta Vocareum bloqueia o CloudFront.
