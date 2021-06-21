@@ -35,7 +35,7 @@ Application Load Balancer (ALB) é um dos tipos de Elastic Load Balancer (ELB).
 
 Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link para visualizar como eu [implementei a solução](serverless#serverless).
 
-[![ Diagrama de Arquitetura](serverless/demo-01.svg)](serverless#serverless)
+[![ Diagrama de Arquitetura](serverless/Estrutura-Serverless-AWS.svg)](serverless#serverless)
 
 #### Pontos a Destacar na Implementação
 - Aplicação 100% serverless;

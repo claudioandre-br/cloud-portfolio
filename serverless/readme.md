@@ -33,6 +33,8 @@ A aplicação é:
 - 100% serverless.
 - o acesso seria/será via CDN [leia a observação e o item 3 abaixo].
 
+![Diagrama da aplicação](Weather-IFSP.svg)
+
 Obs: estou usando a conta Vocareum e eles são pessoas más, não gostam que a gente use os créditos que eles "dão". Só vou criar CDN quando migrar tudo pra uma conta AWS pessoal. Como pode ter custo, estou postergando.
 
 [1] o acesso não devia ocorrer via S3 (ou seja, S3 não teria acesso público. Como ele é a origem, é função do arquiteto proteger/ocultar/resguardar).
