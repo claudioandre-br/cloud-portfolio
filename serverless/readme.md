@@ -67,9 +67,9 @@ A primeira execução deu timeout (algo relativamente comum):
 ![Interface voz](Telas-do-Sistema/Interface-voz-com-timeout-e-resposta.png)
 
 PS:
-- Todos os textos que aparecem no chat, o Chrome "fala" em voz alta.
+- Todos os textos que aparecem na tela do chat o Chrome "fala" em voz alta.
 - É interessante, a moça do Chrome lê bem português, mas ela não entende português "falado".
-- E quando ela lê inglês, o resultado é exótico.
+- E quando ela lê inglês, ai!, o resultado é exótico.
 - O bot LEX entende inglês (não tinha opção de pt-BR), mas a interface eu faço como quiser.
 - Interessante, Alexa fala português, mas minha conta não tem português como suportado no Amazon LEX.
 
