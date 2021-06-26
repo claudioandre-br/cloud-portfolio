@@ -1,0 +1,19 @@
+alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+ 
+aws ec2 run-instances --image-id ami-09e67e426f25ce0d7 --count 1 \
+  --instance-type t2.micro --key-name chaves-AWS \
+  --security-group-ids sg-0ea824fa06dbf6bb2 \
+  --user-data file://awsCreateEC2.sh \
+  --tag-specifications \
+    'ResourceType=instance,Tags=[{Key=webserver,Value=production}]' \
+    'ResourceType=volume,Tags=[{Key=cost-center,Value=cc123}]'
+
+
+aws ec2 stop-instances \
+  --instance-ids <ID> # i-09bbcab6e172e33a6  
+    
+aws ec2 terminate-instances \
+  --instance-ids <ID> # i-09bbcab6e172e33a6  
+
+    
+# --subnet-id subnet-xxxxxxxx    
