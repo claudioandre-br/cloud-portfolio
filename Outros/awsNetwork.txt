@@ -1,0 +1,147 @@
+aws ec2 create-vpc \
+   --cidr-block 172.16.0.0/16
+
+aws ec2 describe-vpcs --vpc-ids [vpc-id]
+
+aws ec2 create-subnet \
+  --vpc-id vpc-09c9576fd7e8e64b7 \
+  --cidr-block 172.16.100.0/24 \
+  --availability-zone us-east-1a
+
+  aws ec2 describe-subnets --subnet-ids [subnet-id]
+
+## ENI ##
+aws ec2 create-network-interface \
+  --private-ip-address 172.16.100.99 \
+  --subnet-id subnet-083ca85ed9d342d6e
+
+aws ec2 describe-network-interfaces \
+  --network-interface-ids eni-047e6259b431cc08f
+
+##  IGW ##
+aws ec2 create-internet-gateway
+
+aws ec2 attach-internet-gateway \
+  --internet-gateway-id igw-0249f11ad7277b33d \
+  --vpc-id vpc-09c9576fd7e8e64b7
+
+aws ec2 describe-route-tables \
+  --filters Name=vpc-id,Values=vpc-09c9576fd7e8e64b7
+
+aws ec2 create-route \
+  --route-table-id rtb-099f4bf2a5867b553 \
+  --destination-cidr-block "0.0.0.0/0" \
+  --gateway-id igw-0249f11ad7277b33d
+
+## Security Group ##
+aws ec2 create-security-group \
+  --group-name "web-ssh" \
+  --description "Web and SSH traffic" \
+  --vpc-id vpc-09c9576fd7e8e64b7
+
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-0b296daec0f7a5b33 \
+  --protocol "tcp" \
+  --cidr "0.0.0.0/0" \
+  --port "22"
+
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-0b296daec0f7a5b33 \
+  --protocol "tcp" \
+  --cidr "0.0.0.0/0" \
+  --port "80"
+
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-0b296daec0f7a5b33 \
+  --protocol "tcp" \
+  --cidr "0.0.0.0/0" \
+  --port "443"
+
+aws ec2 describe-security-groups \
+  --group-id sg-0b296daec0f7a5b33
+
+## Network ACL ##
+aws ec2 create-network-acl \
+  --vpc-id vpc-09c9576fd7e8e64b7
+
+aws ec2 create-network-acl-entry \
+  --ingress \
+  --cidr-block "0.0.0.0/0" \
+  --protocol "tcp" \
+  --port-range "From=22,To=22" \ # Range of ports
+  --rule-action "allow" \
+  --network-acl-id acl-08325568cb4801d09 \
+  --rule-number 70
+
+aws ec2 describe-network-acls \
+  --network-acl-id acl-08325568cb4801d09
+
+## Elastic IPs ##
+aws ec2 allocate-address #Elastic IP
+
+aws ec2 associate-address \
+  --allocation-id eipalloc-051cb0b331fca1991 \
+  --network-interface-id eni-047e6259b431cc08f
+
+aws ec2 describe-network-interfaces \
+  --network-interface-ids eni-047e6259b431cc08f
+
+## Transit gateway (Create a new VPC and the transit gateway) ##
+aws ec2 create-vpc --cidr-block 172.17.0.0/16
+aws ec2 create-subnet \
+  --vpc-id vpc-0ac7e598e447fd9a9 \
+  --cidr-block 172.17.100.0/24 \
+  --availability-zone us-east-1b
+
+aws ec2 create-transit-gateway
+
+aws ec2 create-transit-gateway-vpc-attachment \
+  --transit-gateway-id "tgw-0cb00082581a12bac" \
+  --vpc-id vpc-0ac7e598e447fd9a9 \
+  --subnet-ids "subnet-0acd06d62d98f46d4"
+
+aws ec2 create-transit-gateway-vpc-attachment \
+  --transit-gateway-id "tgw-0cb00082581a12bac" \
+  --vpc-id vpc-09c9576fd7e8e64b7 \
+  --subnet-ids "subnet-083ca85ed9d342d6e"
+
+aws ec2 search-transit-gateway-routes \
+  --transit-gateway-route-table-id tgw-rtb-0cb1b088117d1f9d4 \
+  --filters "Name=type,Values=static,propagated"
+
+aws ec2 create-route \
+  --route-table-id rtb-099f4bf2a5867b553 \
+  --destination-cidr-block "172.17.0.0/16" \
+  --transit-gateway-id tgw-0cb00082581a12bac
+
+aws ec2 create-route \
+  --route-table-id rtb-0da5d92f7738f9181 \
+  --destination-cidr-block "172.16.0.0/16" \
+  --transit-gateway-id tgw-0cb00082581a12bac
+
+aws ec2 describe-route-tables \
+  --filters Name=route.transit-gateway-id,Values=tgw-0cb00082581a12bac
+
+## Transit gateway route table (Blackhole Routes) ##
+aws ec2 create-transit-gateway-route \
+  --destination-cidr-block 172.16.100.64/29 \
+  --transit-gateway-route-table-id tgw-rtb-0cb1b088117d1f9d4 \
+  --blackhole
+
+## Clean Up ##
+aws ec2 search-transit-gateway-routes \
+  --transit-gateway-route-table-id tgw-rtb-0cb1b088117d1f9d4 \
+  --filters "Name=type,Values=static,propagated"
+
+aws ec2 delete-transit-gateway-vpc-attachment \
+  --transit-gateway-attachment-id tgw-attach-0857a8499c0f50f4b
+
+aws ec2 delete-transit-gateway-vpc-attachment \
+  --transit-gateway-attachment-id tgw-attach-05706decba3ce5734
+
+aws ec2 delete-transit-gateway \
+  --transit-gateway-id tgw-0cb00082581a12bac
+
+## -------------- ##
+vpc-id = "vpc-0d19e8153b4d142ed"
+[subnet-id] = subnet-083ca85ed9d342d6e
