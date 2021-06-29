@@ -10,9 +10,9 @@
 ######################################################################
 
 resource "aws_autoscaling_group" "app-asg" {
-  name                      = "app-target-group"
+  name                      = "asg-Directory-app"
   min_size                  = 1
-  max_size                  = 4
+  max_size                  = 3
   desired_capacity          = 1
   health_check_grace_period = 300
   health_check_type         = "ELB"

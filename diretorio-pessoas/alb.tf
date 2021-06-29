@@ -10,7 +10,7 @@
 ######################################################################
 
 resource "aws_lb" "app-elb" {
-  name               = "app-elb"
+  name               = "alb-Directory-app"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb-sg.id]

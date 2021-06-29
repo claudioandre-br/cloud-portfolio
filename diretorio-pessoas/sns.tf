@@ -10,7 +10,7 @@
 ######################################################################
 
 resource "aws_sns_topic" "user_updates" {
-  name            = "Employee-App-CPU"
+  name            = "sns-Directory-app"
   delivery_policy = <<EOF
 {
   "http": {

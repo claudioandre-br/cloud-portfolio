@@ -34,11 +34,11 @@ module "vpc" {
   }
 
   vpc_tags = {
-    Name = "app-vpc"
+    Name = "Directory-app-vpc"
   }
 
   igw_tags = {
-    Name = "app-igw"
+    Name = "Directory-app-igw"
   }
 
   public_subnet_tags = {

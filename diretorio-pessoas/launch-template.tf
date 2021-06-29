@@ -10,7 +10,7 @@
 ######################################################################
 
 resource "aws_launch_template" "web-server" {
-  name           = "app-launch-template"
+  name           = "template-Directory-app"
   description    = "A web server for the employee directory application."
   image_id       = data.aws_ami.amazon-linux-2.id
   instance_type  = var.instance["instance_type"]

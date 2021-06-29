@@ -30,7 +30,7 @@ resource "aws_cloudwatch_metric_alarm" "alarm" {
   }
 
   tags = {
-    Name = "alrm-employee-app-CPU-util"
+    Name = "alrm-Directory-app-CPU-util"
     Environment = var.domain
     "Application Role" = var.role
     Owner = var.owner

@@ -44,7 +44,7 @@ EOF
 }
 
 resource "aws_cloudwatch_dashboard" "asg-dashboard" {
-  dashboard_name = "Dashboard"
+  dashboard_name = "Directory-app"
 
   dashboard_body = <<EOF
 {

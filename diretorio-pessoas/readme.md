@@ -46,13 +46,13 @@ aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 NÃO SE ESQUEÇA: garanta que o nome do bucket é único. Personalize-o, se necessário (veja acima no tópico [Diretório de Funcionários](#diretório-de-funcionários) como fazer isto).
 
 O uso de contas Vocareum é problemático:
-* Em minha conta AWS Educate eu não consigo criar Auto Scaling (_Error creating Auto Scaling Group: AccessDenied_).
-* Existem outras restrições no uso de Contas Vocareum (por exemplo, o erro _is not authorized to perform: iam:TagPolicy_).
+* Existem muitos limites de uso da conta;
+* Mas a criação e o uso dos recursos FUNCIONAM.
 
 ```bash
 # Get the tool
 git clone https://github.com/claudioandre-br/cloud-portfolio.git cloud
-cd  cloud/diretorio-pessoas
+cd cloud/diretorio-pessoas
 
 # The `-v` is to share content between host and Docker (Bind-mount a directory inside Docker)
 #   Current (project) folder   -v $(pwd):/host/workdir
@@ -70,5 +70,5 @@ terraform init
 terraform apply
 
 # Do some tests then destroy the infrastructure created below (to avoid costs).
-terraform destroy
+terraform destroy --auto-approve
 ```
