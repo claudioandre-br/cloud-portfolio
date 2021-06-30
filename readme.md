@@ -5,14 +5,17 @@
 Este repositório foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, aprender ou demonstrar boas práticas em Cloud. Serve, ainda, como um portfólio de soluções que eu desevolvi ou adaptei de fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
 
 # Índice
-1. [Aplicação "Diretório de Funcionários"](#aplicação-demo-i-diretório-de-funcionários)
-1. [Aplicação "Clima no Campus"](#aplicação-demo-ii-clima-no-campus)
+1. [Portfolio de Cloud (Aplicações de Demonstração e Exemplo)](#aplicações)
+    1. [Aplicação "Diretório de Funcionários"](#aplicação-demo-i-diretório-de-funcionários)
+    1. [Aplicação "Clima no Campus"](#aplicação-demo-ii-clima-no-campus)
 1. [AWS Identity and Access Management](#aws-identity-and-access-management-aws-iam)
-1. [Cursos AWS que são um show](#cursos-recomendados)
-7. [Package Security](#security)
-8. [License](#license)
+6. [Cursos AWS que são um show](#cursos-recomendados)
+7. [Segurança](#security)
+8. [Licença](#license)
 
 # Aplicações
+
+Este repositório serve como um portfólio de soluções Cloud que eu desevolvi ou adaptei. Ainda, para demonstrar minha vivência na plataforma AWS. Por fim, como um _cheat sheet_ usado para referência e consultas rápidas.
 
 ### Aplicação Demo I "Diretório de Funcionários"
 
@@ -79,7 +82,7 @@ Este tópico contém uma lista de cursos sobre AWS que eu fiz e recomendo. São 
   * AWS Fundamentals: Building Serverless Applications (muito interessante)
 
 - _Instituto Federal de São Paulo (IFSP)_
-  * (em andamento) AWS Academy Cloud Foundations (ACF)
+  * AWS Academy Cloud Foundations (ACF)
 
 - _AWS Educate_ (são cursos fracos, ainda assim, oficiais)
   * Cloud Computing 101

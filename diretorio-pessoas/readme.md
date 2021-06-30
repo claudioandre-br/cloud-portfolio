@@ -45,7 +45,7 @@ aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
 NÃO SE ESQUEÇA: garanta que o nome do bucket é único. Personalize-o, se necessário (veja acima no tópico [Diretório de Funcionários](#diretório-de-funcionários) como fazer isto).
 
-O uso de contas Vocareum é problemático:
+O uso de contas Vocareum funciona, mas é problemático:
 * Existem muitos limites de uso da conta;
 * Mas a criação e o uso dos recursos FUNCIONAM.
 
