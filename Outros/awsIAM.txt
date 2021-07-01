@@ -1,0 +1,13 @@
+aws iam create-user --user-name claudio
+aws iam get-user --user-name claudio
+
+## Policy ##
+aws iam list-policies
+aws iam attach-user-policy \
+  --policy-arn arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess \
+  --user-name claudio
+
+## Access Key ##
+aws iam list-access-keys --user-name claudio
+aws iam create-access-key --user-name claudio
+aws iam delete-access-key --user-name claudio --access-key-id AKIA<. . .>
