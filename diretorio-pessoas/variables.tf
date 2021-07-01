@@ -109,7 +109,7 @@ variable "spot_price" {
 # ####################################################################
 
 # TODO ###############################################################
-# Set your Spot preferences.
+# Set your e-mail for notifications.
 variable admin_email {
   type = string
   default = "seuemail@provedor.com"

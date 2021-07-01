@@ -13,6 +13,20 @@ s3.tf:  default = "logs-apps-internal" # TODO bucked-id.
 start-up.sh:export PHOTOS_BUCKET=employee-photo-bucket-cl #TODO bucked-id.
 ```
 
+Para ser mais preciso, você deve verificar todos os arquivos fonte que contém a palabra "TODO" em busca de configurações que pode fazer em seus testes.
+
+```bash
+$ grep -R TODO
+  => s3.tf:  default = "employee-photo-bucket-cl" # TODO bucked-id.
+  => s3.tf:  default = "logs-apps-internal" # TODO bucked-id.
+variables.tf:# TODO ###############################################################
+variables.tf:# TODO ###############################################################
+variables.tf:# TODO ###############################################################
+variables.tf:# TODO ###############################################################
+variables.tf:# TODO ###############################################################
+  => start-up.sh:export PHOTOS_BUCKET=employee-photo-bucket-cl #TODO bucked-id.
+```
+
 ### Casos de Uso
 
 Aprender como usar AWS e como usar IaC.
