@@ -1,0 +1,14 @@
+##       S3 Transfer Acceleration        ##
+## Meus testes mostraram ganho minúsculo ##
+
+######## 3% até o máximo de 30% ########
+s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=us-east-1&origBucketName=ifouclima
+########                        ########
+
+aws s3api put-bucket-accelerate-configuration \
+  --bucket my-bucket-name \
+  --accelerate-configuration Status=Enabled
+  
+aws s3 cp filename.extension s3://my-bucket-name \
+  --region us-east-1 \
+  --endpoint-url http://s3-accelerate.amazonaws.com
