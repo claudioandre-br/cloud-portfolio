@@ -1,0 +1,17 @@
+## Manage git repository ##
+
+aws codecommit create-repository --repository-name teste-git
+
+########  ########
+De dentro de uma instancia EC2, com um role poderoso o suficiente, eu executei:
+git config --global credential.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true
+
+Localmente, como eu uso a versão 2 da CLI (python 3) via Docker eu não consegui:
+- mas há um erro conhecido e documentado relacionado ao python 3.
+
+Então:
+- de dentro da instancia EC2 eu consegui dar commit, sem ter que criar um usuário específico para isto.
+########  
+
+aws codecommit delete-repository --repository-name teste-git
