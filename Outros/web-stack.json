@@ -1,0 +1,337 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "AWS CloudFormation Template that creates a launch template, Auto Scaling group, and an Application Load Balancer.",
+    "Parameters": {
+        "KeyName": {
+            "Default": "chaves-AWS",
+            "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instances",
+            "Type": "AWS::EC2::KeyPair::KeyName",
+            "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
+        },
+        "WebserverCapacity": {
+            "Default": "2",
+            "Description": "The initial nuber of Webserver instances",
+            "Type": "Number",
+            "MinValue": "1",
+            "MaxValue": "3",
+            "ConstraintDescription": "must be between 1 and 3 EC2 instances."
+        },
+        "InstanceType": {
+            "Description": "Webserver EC2 instance type",
+            "Type": "String",
+            "Default": "t2.medium",
+            "AllowedValues": [
+                "t2.small",
+                "t2.micro",
+                "t2.medium",
+                "c5.large",
+                "m5.large"
+            ],
+            "ConstraintDescription": "must be a valid EC2 instance type."
+        },
+        "SSHLocation": {
+            "Description": " The IP address range that can be used to SSH to the EC2 instances",
+            "Type": "String",
+            "MinLength": "9",
+            "MaxLength": "18",
+            "Default": "0.0.0.0/0",
+            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
+        }
+    },
+    "Mappings": {
+        "AWSInstanceType2Arch": {
+            "t2.small": {
+                "Arch": "HVM64"
+            },
+            "t2.micro": {
+                "Arch": "HVM64"
+            },
+            "t2.medium": {
+                "Arch": "HVM64"
+            },
+            "c5.large": {
+                "Arch": "HVM64"
+            },
+            "m5.large": {
+                "Arch": "HVM64"
+            }
+        },
+        "AWSInstanceType2NATArch": {
+            "t2.small": {
+                "Arch": "NATHVM64"
+            },
+            "t2.micro": {
+                "Arch": "NATHVM64"
+            },
+            "t2.medium": {
+                "Arch": "NATHVM64"
+            },
+            "c5.large": {
+                "Arch": "NATHVM64"
+            },
+            "m5.large": {
+                "Arch": "NATHVM64"
+            }
+        },
+        "AWSRegionArch2AMI": {
+            "us-east-1": {
+                "PV64": "ami-2a69aa47",
+                "HVM64": "ami-0ab4d1e9cf9a1215a",
+                "HVMG2": "ami-0a6e3770"
+            },
+            "us-west-2": {
+                "PV64": "ami-7f77b31f",
+                "HVM64": "ami-f2d3638a",
+                "HVMG2": "ami-ee15a196"
+            }
+        }
+    },
+    "Resources": {
+        "NetworkStack" : {
+            "Type" : "AWS::CloudFormation::Stack",
+            "Properties" : {
+               "TemplateURL" : "https://cf-templates-1pplr9q1ardmj-us-east-1.s3.amazonaws.com/network-stack.json"
+            }
+         },
+        "ApplicationLoadBalancer": {
+            "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+            "Properties": {
+                "Subnets": [
+                    { "Fn::GetAtt" : [ "NetworkStack", "Outputs.PublicSubnetAID" ] },
+                    { "Fn::GetAtt" : [ "NetworkStack", "Outputs.PublicSubnetBID" ] }
+                ]
+            }
+        },
+        "ALBListener": {
+            "Type": "AWS::ElasticLoadBalancingV2::Listener",
+            "Properties": {
+                "DefaultActions": [
+                    {
+                        "Type": "forward",
+                        "TargetGroupArn": {
+                            "Ref": "ALBTargetGroup"
+                        }
+                    }
+                ],
+                "LoadBalancerArn": {
+                    "Ref": "ApplicationLoadBalancer"
+                },
+                "Port": "80",
+                "Protocol": "HTTP"
+            }
+        },
+        "ALBTargetGroup": {
+            "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+            "Properties": {
+                "VpcId": { "Fn::GetAtt" : [ "NetworkStack", "Outputs.VPCID" ] },
+                "HealthCheckIntervalSeconds": 10,
+                "HealthCheckTimeoutSeconds": 5,
+                "HealthyThresholdCount": 2,
+                "Port": 80,
+                "Protocol": "HTTP",
+                "UnhealthyThresholdCount": 5,
+                "TargetGroupAttributes": [
+                   {
+                       "Key": "deregistration_delay.timeout_seconds",
+                       "Value": "20"
+                    },
+                    {
+                        "Key": "stickiness.enabled",
+                        "Value": "true"
+                    },
+                    {
+                        "Key": "stickiness.type",
+                        "Value": "lb_cookie"
+                    },
+                    {
+                        "Key": "stickiness.lb_cookie.duration_seconds",
+                        "Value": "30"
+                    }
+                ]
+            }
+        },
+        "InstanceRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+               "RoleName": "InstanceRole",
+               "AssumeRolePolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Principal": {
+                        "Service": [ "ec2.amazonaws.com" ]
+                     },
+                     "Action": [ "sts:AssumeRole" ]
+                  } ]
+               },
+               "Path": "/",
+               "ManagedPolicyArns": [ "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM",
+                                      "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+                                ]
+               }
+        },
+        "InstanceProfile": {
+            "Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+               "InstanceProfileName": "InstanceProfile",
+               "Path": "/",
+               "Roles": [ {
+                  "Ref": "InstanceRole"
+               } ]
+            }
+        },
+        "WebserverGroup": {
+            "Type": "AWS::AutoScaling::AutoScalingGroup",
+            "Properties": {
+                "VPCZoneIdentifier": [
+                    { "Fn::GetAtt" : [ "NetworkStack", "Outputs.PublicSubnetAID" ] },
+                    { "Fn::GetAtt" : [ "NetworkStack", "Outputs.PublicSubnetBID" ] }
+                ],
+                "LaunchTemplate": {
+                    "LaunchTemplateId" : { "Ref": "WebserverLaunchTemplate" },
+                    "Version" : "1"
+                  },
+                "MinSize": "1",
+                "MaxSize": "3",
+                "DesiredCapacity": {
+                    "Ref": "WebserverCapacity"
+                },
+                "TargetGroupARNs": [
+                    {
+                        "Ref": "ALBTargetGroup"
+                    }
+                ]
+            },
+            "CreationPolicy": {
+                "ResourceSignal": {
+                    "Timeout": "PT10M",
+                    "Count": {
+                        "Ref": "WebserverCapacity"
+                    }
+                }
+            },
+            "UpdatePolicy": {
+                "AutoScalingRollingUpdate": {
+                    "MinInstancesInService": "1",
+                    "MaxBatchSize": "1",
+                    "PauseTime": "PT15M",
+                    "WaitOnResourceSignals": "true"
+                }
+            }
+        },
+        "WebserverLaunchTemplate": {
+            "Type": "AWS::EC2::LaunchTemplate",
+            "Metadata": {
+                "Comment1": "Configure the bootstrap helpers to install the Apache Web Server and PHP",
+                "Comment2": "The website content is downloaded from the CloudFormationPHPSample.zip file"
+            },
+            "Properties": {
+                "LaunchTemplateData": {
+                    "ImageId": {
+                        "Fn::FindInMap": [
+                            "AWSRegionArch2AMI",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            {
+                                "Fn::FindInMap": [
+                                    "AWSInstanceType2Arch",
+                                    {
+                                        "Ref": "InstanceType"
+                                    },
+                                    "Arch"
+                                ]
+                            }
+                        ]
+                    },
+                    "IamInstanceProfile" : {
+                        "Arn" : { "Fn::GetAtt": [
+                            "InstanceProfile",
+                            "Arn"
+                        ] }
+                      },
+                    "InstanceType": {
+                        "Ref": "InstanceType"
+                    },
+                    "SecurityGroupIds": [
+                        {
+                            "Ref": "WebserverSecurityGroup"
+                        }
+                    ],
+                    "KeyName": {
+                        "Ref": "KeyName"
+                    },
+                    "UserData": {
+                        "Fn::Base64": {
+                            "Fn::Join": [
+                                "",
+                                [
+                                    "#!/bin/bash\n",
+                                    "sudo yum -y update\n",
+                                    "sudo yum -y install nginx aws-cfn-bootstrap\n",
+                                    "sudo amazon-linux-extras install -y nginx1\n",
+                                    "sudo systemctl start nginx\n",
+                                    "/opt/aws/bin/cfn-signal -e 0 --stack ", { "Ref": "AWS::StackName" }," --resource WebserverGroup"
+                                ]
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "WebserverSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Enable HTTP access via port 80 locked down to the ELB and SSH access",
+                "SecurityGroupIngress": [
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "80",
+                        "ToPort": "80",
+                        "SourceSecurityGroupId": {
+                            "Fn::Select": [
+                                0,
+                                {
+                                    "Fn::GetAtt": [
+                                        "ApplicationLoadBalancer",
+                                        "SecurityGroups"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": "22",
+                        "ToPort": "22",
+                        "CidrIp": {
+                            "Ref": "SSHLocation"
+                        }
+                    }
+                ],
+                "VpcId": {
+                    "Fn::GetAtt" : [ "NetworkStack", "Outputs.VPCID" ] }
+                }
+            }
+    },
+    "Outputs": {
+        "WebsiteURL": {
+            "Description": "URL for ALB",
+            "Value": {
+                "Fn::Join": [
+                    "",
+                    [
+                        "http://",
+                        {
+                            "Fn::GetAtt": [
+                                "ApplicationLoadBalancer",
+                                "DNSName"
+                            ]
+                        }
+                    ]
+                ]
+            }
+        }
+    }
+}

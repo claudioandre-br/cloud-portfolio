@@ -1,0 +1,20 @@
+## Network Template ##
+
+aws cloudformation create-stack --stack-name Network \
+  --template-body file://network-stack.json
+
+## Network From S3 ##
+aws cloudformation create-stack --stack-name Network \
+  --template-url https://s3.amazonaws.com/bucket-name/network-stack.json
+
+aws cloudformation delete-stack --stack-name Network
+
+## Real Run ##
+aws cloudformation create-stack --stack-name web-stack \
+  --template-body file://web-stack.json \
+  --parameters ParameterKey=KeyName,ParameterValue=chaves-AWS \
+  --capabilities CAPABILITY_NAMED_IAM
+
+aws cloudformation describe-stacks
+
+aws cloudformation delete-stack --stack-name web-stack
