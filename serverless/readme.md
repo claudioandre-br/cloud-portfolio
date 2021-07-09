@@ -2,7 +2,7 @@
 
 Este diretório contém uma aplicação que usa uma série de serviços serverless da AWS. A aplicação original foi criada pelo time de treinamento AWS para demonstrar como utilizar a AWS. Adaptei para o meu caso de uso.
 
-Deve ser possível testar este ambiente na sua conta sem alterações. Eu **não** usei IaC (Infra como código), portanto, algumas funcionalidades foram implementadas diretamente na AWS e você não conseguirá vê-las aqui.
+Deve ser possível testar este ambiente na sua conta sem alterações. Eu **não** usei _infra como código_ (IaC), portanto, algumas funcionalidades foram implementadas diretamente na AWS e você não conseguirá vê-las aqui.
 
 ### Aplicação Demo "Qual o clima no Campus do IFSP"
 
@@ -23,11 +23,15 @@ Esta aplicação utiliza os serviços serverless Amazon LEX, o Amazon CloudFront
 
 O app tem duas interfaces de acesso:
 - interface texto:
-   - via S3 http://ifouclima.s3-website-us-east-1.amazonaws.com/ [leia o item 1 abaixo]
+   - via S3 http://ifouclima.s3-website-us-east-1.amazonaws.com/ [leia o item 1 abaixo];
+   - usando HTTPS https://ifouclima.s3.amazonaws.com/text.html [*];
    - uma função lambda é chamada que consulta um banco de dados DynamoDB.
 - interface voz, via "assistente virtual" (com ajuda da API do Chrome):
-   - via S3 http://ifouclima.s3-website-us-east-1.amazonaws.com/ifia.html [leia o item 2 abaixo]
+   - via S3 http://ifouclima.s3-website-us-east-1.amazonaws.com/ifia.html [leia o item 2 abaixo];
+   - usando HTTPS https://ifouclima.s3.amazonaws.com/ifia.html [*];
    - uma função lambda é chamada que consulta um bot LEX.
+
+[*] Via _Legacy Global Endpoint_: algo do tipo _bucket-name.s3.amazonaws.com_. Requisições feitas usando o "legacy global endpoint" são direcionadas para US East (N. Virginia) por padrão. Leia mais em https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html.
 
 A aplicação é:
 - 100% serverless.
@@ -35,7 +39,7 @@ A aplicação é:
 
 ![Diagrama da aplicação](Weather-IFSP.svg)
 
-Obs: estou usando a conta Vocareum e eles são pessoas más, não gostam que a gente use os créditos que eles "dão". Só vou criar CDN quando migrar tudo pra uma conta AWS pessoal. Como pode ter custo, estou postergando.
+Obs: estou usando a conta Vocareum e eles são pessoas más que não gostam que a gente use os créditos que eles "dão". Só vou criar CDN quando migrar tudo pra uma conta AWS pessoal. Como pode ter custo, estou postergando.
 
 [1] o acesso não devia ocorrer via S3 (ou seja, S3 não teria acesso público. Como ele é a origem, é função do arquiteto proteger/ocultar/resguardar).
 
@@ -73,11 +77,17 @@ PS:
 - O bot LEX entende inglês (não tinha opção de pt-BR), mas a interface eu faço como quiser.
 - Interessante, Alexa fala português, mas minha conta não tem português como suportado no Amazon LEX.
 
-### Permissões no Chrome
+### Permissões no Chrome (DEPRECATED)
 
-Eu tive que "forçar" pra usar o microfone no Chrome (Chrome bloqueia o acesso a alguns recursos se o site não usar https).
+Se você usar o endereço do site estático do S3 (Amazon S3 static website address) terá que "forçar" para usar o microfone no Chrome (Chrome bloqueia o acesso a alguns recursos se o site não usar https).
 
-1. Como o S3 não suporta https, você precisa confiar no site http "ifô u clima"
+Recomendo com veemência que você use o [link do tipo](https://ifouclima.s3.amazonaws.com/ifia.html) _virtual-host-style addressing over HTTPS_, e não tenha esta limitação. Claro, você ainda terá que liberar o acesso ao microfone para o site "IFô u clima".
+
+![Liberação necessária na segurança do Chrome](Liberacao-necessaria-na-segurança-do-Chrome.png)
+
+Se preferir ou precisar acessar usando HTTP, então:
+
+1. Como o S3 static hosting não suporta https, você precisa confiar no site http "ifô u clima"
 2. No Chrome, acesse [chrome://flags/#unsafely-treat-insecure-origin-as-secure](chrome://flags/#unsafely-treat-insecure-origin-as-secure)
 3. E inclua o site
 http://ifouclima.s3-website-us-east-1.amazonaws.com na sua lista de autorizados, conforme você vê na image:
