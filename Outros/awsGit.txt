@@ -3,7 +3,7 @@
 aws codecommit create-repository --repository-name teste-git
 
 ########  ########
-De dentro de uma instancia EC2, com um role poderoso o suficiente, eu executei:
+De dentro de uma instancia EC2, com um 'role' adequado, eu executei:
 git config --global credential.helper '!aws codecommit credential-helper $@'
 git config --global credential.UseHttpPath true
 
