@@ -1,0 +1,8 @@
+##          S3 MFA Delete           ##
+## Habilitar MFA para excluir no S3 ##
+
+## Para habilitar o uso de MFA na exclusão ##
+aws s3api put-bucket-versioning --bucket health-records-55a --versioning-configuration Status=Enabled,MFADelete=Enabled --mfa "SERIAL 123456"
+
+## Para excluir usando o MFA ##
+aws s3api delete-object --profile my-root-profile --bucket my-bucket-name --key my-file-name.jpg --version-id myfileVeRsioNiU8u4DTsqUg9NR_Z_SA —-mfa “arn:aws:iam::000000000:mfa/root-account-mfa-device 123456”
