@@ -88,7 +88,7 @@ Este tópico lista _alguns_[1] cursos AWS que eu fiz e recomendo. São cursos of
 - _AWS Educate_ (são cursos fracos, ainda assim, oficiais)
   * Solutions Architect
 
-[1] Alguns cursos, apesar de interessantes e gratuitos, não foram listados para manter a objetividade e brevidade. Fiz mais de uma dúzia de cursos AWS oficiais (via Aws Training and Certification) ou via plataforma (curso desenvolvido pela AWS e disponível no Coursera). Valem muito a pena: profundidade e a precisão na medida certa.
+[1] Alguns cursos, apesar de interessantes e gratuitos, não foram listados para manter a objetividade e brevidade. Fiz mais de uma dúzia de cursos AWS oficiais (desenvolvidos pela Aws Training and Certification), alguns estão disponíveis em alguma plataforma (por exemplo, curso desenvolvido pela AWS e disponível no Coursera). Valem muito a pena: profundidade e a precisão na medida certa.
 
 ## Security
 
