@@ -4,6 +4,15 @@
 
 Este repositório foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, aprender ou demonstrar boas práticas em Cloud. Serve, ainda, como um portfólio de soluções que eu desevolvi ou adaptei de fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
 
+<center>
+
+|              |          |             |
+:-------------------------:|:-------------------------:|:-------------------------:
+![](.badges/img1.png)  |  ![](.badges/img2.png) |  ![](.badges/img3.png)
+| _GitHub Arctic Code <br /> Vault Contributor_ | .................................... | .................................... |
+
+</center>
+
 # Índice
 1. [Portfolio de Cloud (Aplicações de Demonstração e Exemplo)](#aplicações)
     1. [Aplicação "Diretório de Funcionários"](#aplicação-demo-i-diretório-de-funcionários)
