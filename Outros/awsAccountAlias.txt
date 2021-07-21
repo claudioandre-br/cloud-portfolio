@@ -1,0 +1,7 @@
+## Criar alias para a conta AWS ##
+
+aws iam create-account-alias --account-alias vocareum
+
+aws iam delete-account-alias --account-alias vocareum
+
+aws iam list-account-aliases
