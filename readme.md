@@ -86,13 +86,13 @@ Este tópico lista _alguns_[1] cursos AWS que eu fiz e recomendo. São cursos of
   * AWS Fundamentals: Going Cloud-Native
 
   Via "AWS Fundamentals Specialization":
-  * AWS Cloud Technical Essentials (muito interessante)
-  * AWS Fundamentals: Addressing Security Risk (deixa a desejar)
+  * AWS Cloud Technical Essentials [2]
+  * AWS Fundamentals: Addressing Security Risk [3]
   * AWS Fundamentals: Migrating to the Cloud
-  * AWS Fundamentals: Building Serverless Applications (muito interessante)
+  * AWS Fundamentals: Building Serverless Applications [2]
 
 - _Instituto Federal de São Paulo (IFSP)_
-  * AWS Academy Cloud Foundations (ACF)
+  * AWS Academy Cloud Foundations (ACF) [4]
 
 - _AWS Educate_ (são cursos fracos, ainda assim, oficiais)
   * Solutions Architect
@@ -100,10 +100,16 @@ Este tópico lista _alguns_[1] cursos AWS que eu fiz e recomendo. São cursos of
 A AWS oferece muito material gratuito para treinamento:
 - Get AWS Certified Global Challenges (ao menos Cloud Practitioner e Cloud Architect)
 - AWS Training and Certification https://www.aws.training/
-- Qwiklabs https://amazon.qwiklabs.com/ (vários tutoriais _free_)
+- Qwiklabs https://amazon.qwiklabs.com/ (vários tutoriais são _free_)
 - Fiz minha revisão para a prova de arquiteto usando o curso Udemy do Stephane Maarek (recomendo)
 
-[1] Alguns cursos, apesar de interessantes e gratuitos, não foram listados para manter a objetividade e brevidade. Fiz mais de uma dúzia de cursos AWS oficiais (desenvolvidos pela Aws Training and Certification). Gostei bastante dos cursos. Alguns estão disponíveis em alguma plataforma (por exemplo, curso desenvolvido pela AWS e disponível no Coursera). Valem muito a pena: profundidade e a precisão na medida certa.
+[1] Alguns cursos, apesar de interessantes e gratuitos, não foram listados para manter a objetividade e brevidade. Gostei bastante dos cursos oficiais, alguns estão disponíveis em alguma plataforma (por exemplo, curso desenvolvido pela AWS e disponível no Coursera). Valem muito a pena: profundidade e a precisão na medida certa.
+
+[2] Curso muito interessante.
+
+[3] Este é um curso que deixa a desejar, mas faz parte da especialização "AWS Fundamentals".
+
+[4] Curso em português, com professor e gratuito.
 
 ## Security
 

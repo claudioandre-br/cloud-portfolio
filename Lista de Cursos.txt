@@ -1,0 +1,45 @@
+- AWS Training and Certification
+  * AWS Cloud Practitioner Essentials
+  * Getting Started with Cloud Acquisition
+  * Getting Started with Amazon Simple Storage Service (Amazon S3)
+  * Job Roles in the Cloud
+  * AWS Security Fundamentals (Second Edition)
+  * Amazon Simple Storage Service (Amazon S3) Business Continuity and Disaster Recovery
+  * AWS Technical Essentials
+  * AWS Tecnhical Essentials Day
+  * AWS Get Certified - Solutions Architect - Associate (Get Certified event)
+  * Get AWS Certified Challenge (Cloud Practitioner)
+  * Get AWS Certified: Solutions Architect Challenge
+
+- Coursera fornecido por Amazon Web Services
+  * Introduction to AWS Identity and Access Management
+  * AWS Fundamentals: Going Cloud-Native
+
+  AWS specialization
+  * AWS Cloud Technical Essentials
+  * AWS Fundamentals: Addressing Security Risk
+  * AWS Fundamentals: Migrating to the Cloud
+  * AWS Fundamentals: Building Serverless Applications
+
+- IFSP: Instituto Federal de São Paulo
+  * AWS Academy Cloud Foundations (ACF)[1]
+
+- AWS Educate
+  * Cloud Computing 101
+  * Solutions Architect
+
+- Udemy
+  * Ultimate AWS Certified Solutions Architect Associate 2021
+
+=== Outros ===
+- Ka Solution
+  * Microsoft Azure Fundamentals (AZ‐900)
+
+- Green Tecnologia
+  * Microsoft Azure Data Fundamentals (DP-900)
+
+- Microsoft Azure Training Day(s)
+  * Data Fundamentals
+  * Fundamentals
+
+[1] Fundamentos de Nuvem da Academia AWS
