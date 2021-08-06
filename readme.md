@@ -2,14 +2,14 @@
 
 [![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](LICENSE)
 
-Este repositório foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, aprender ou demonstrar boas práticas em Cloud. Serve, ainda, como um portfólio de soluções que eu desevolvi ou adaptei de fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
+Este é um portfólio de soluções que eu desevolvi ou adaptei. Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, aprender ou demonstrar boas práticas em Cloud. Todo material se baseia em fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
 
 <center>
 
-|              |          |             |
-:-------------------------:|:-------------------------:|:-------------------------:
-![](.badges/img1.png)  |  ![](.badges/img2.png) |  ![](.badges/img3.png)
-| _GitHub Arctic Code <br /> Vault Contributor_ | .................................... | .................................... |
+|              |          |             |             |
+:-------------:|:-------------:|:-------------:|:-------------:
+![](.badges/img4.png)  |![](.badges/img1.png)  |  ![](.badges/img2.png) |  ![](.badges/img3.png)
+| .................................... | _GitHub Arctic Code <br /> Vault Contributor_ | .................................... | .................................... |
 
 </center>
 
