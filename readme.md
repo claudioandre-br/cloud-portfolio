@@ -99,9 +99,10 @@ Este tópico lista _alguns_[1] cursos AWS que eu fiz e recomendo. São cursos of
 
 A AWS oferece muito material gratuito para treinamento:
 - Get AWS Certified Global Challenges (ao menos Cloud Practitioner e Cloud Architect)
-- AWS Training and Certification https://www.aws.training/
+- AWS Training and Certification https://www.aws.training/ (muitos cursos são gratuitos)
 - Qwiklabs https://amazon.qwiklabs.com/ (vários tutoriais são _free_)
-- Fiz minha revisão para a prova de arquiteto usando o curso Udemy do Stephane Maarek (recomendo)
+
+Fiz minha revisão para a prova de arquiteto usando o curso Udemy do Stephane Maarek (recomendo). Custo baixo em um curso muito bom.
 
 [1] Alguns cursos, apesar de interessantes e gratuitos, não foram listados para manter a objetividade e brevidade. Gostei bastante dos cursos oficiais, alguns estão disponíveis em alguma plataforma (por exemplo, curso desenvolvido pela AWS e disponível no Coursera). Valem muito a pena: profundidade e a precisão na medida certa.
 
