@@ -1,0 +1,16 @@
+Diretório de Pessoas:
+- Verificar ACL do bucket de logs do S3 (a rigor, eu diria que há algum problema no ajuste da policy).
+  - feito isto, protegê-lo de acesso público via "S3 block public access".
+
+- Deveria criar VPC endpoints para os serviços S3 e DynamoDB.
+  - isto me permitiria mover os servidores Web para SubNet privada sem uso do NAT Gateway.
+  - já uso ALB, não preciso dos servidores Web com IP público.
+  - tornaria a arquitetura mais robusta, evitando internet pública para serviços AWS.
+
+- Como demonstrar de forma mais clara a segurança nos diagramas de arquitetura?
+  - Mantendo os diagramas limpos. Será possível?
+  - Faz sentido usar o Cognito na aplicação "Serverless".
+
+
+Serverless:
+- Incluir autenticação e usar Cognito via Federação de usuários.

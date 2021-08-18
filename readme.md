@@ -2,7 +2,9 @@
 
 [![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](LICENSE)
 
-Este é um portfólio de soluções que eu desevolvi ou adaptei. Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, aprender ou demonstrar boas práticas em Cloud. Todo material se baseia em fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
+Este repositório serve como um portfólio de soluções Cloud que eu desevolvi ou adaptei. Ainda, para demonstrar minha vivência na plataforma AWS. Por fim, como um _cheat sheet_ usado para referência e consultas rápidas.
+
+Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, estudar ou demonstrar boas práticas em Cloud. Todo material se baseia em fontes reconhecidas (por exemplo, os materiais oferecidos pela própria AWS).
 
 <center>
 
@@ -24,7 +26,7 @@ Este é um portfólio de soluções que eu desevolvi ou adaptei. Foi criado para
 
 # Aplicações
 
-Este repositório serve como um portfólio de soluções Cloud que eu desevolvi ou adaptei. Ainda, para demonstrar minha vivência na plataforma AWS. Por fim, como um _cheat sheet_ usado para referência e consultas rápidas.
+Portfólio Cloud criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, estudar ou demonstrar boas práticas em Cloud.
 
 ### Aplicação Demo I "Diretório de Funcionários"
 
