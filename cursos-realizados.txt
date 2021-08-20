@@ -1,6 +1,6 @@
-Lista de Cursos que eu para conseguir minha certificação AWS:
-
-Também trabalhei uma estratégia Multi Cloud.
+Lista de Cursos que eu fiz para:
+- entender de "AWS";
+- e conseguir minha certificação AWS.
 
 === AWS ===
 - AWS Training and Certification
@@ -29,7 +29,7 @@ Também trabalhei uma estratégia Multi Cloud.
   * AWS Fundamentals: Building Serverless Applications
 
 - IFSP: Instituto Federal de São Paulo
-  * AWS Academy Cloud Foundations (ACF)[1]
+  * AWS Academy Cloud Foundations (ACF)
 
 - AWS Educate
   * Cloud Computing 101
@@ -39,6 +39,8 @@ Também trabalhei uma estratégia Multi Cloud.
   * Ultimate AWS Certified Solutions Architect Associate 2021
 
 === Outros ===
+Também estou seguindo uma trilha/estratégia Multi Cloud.
+
 - Ka Solution
   * Microsoft Azure Fundamentals (AZ‐900)
 
@@ -48,5 +50,3 @@ Também trabalhei uma estratégia Multi Cloud.
 - Microsoft Azure Training Day(s)
   * Data Fundamentals
   * Fundamentals
-
-[1] Fundamentos de Nuvem da Academia AWS
