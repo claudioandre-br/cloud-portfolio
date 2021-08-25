@@ -1,0 +1,18 @@
+{
+"Version": "2012-10-17",
+"Statement": [
+    {
+        "Sid": "LivroVisitasDynamoDB",
+        "Effect": "Allow",
+        "Action": [
+            "dynamodb:PutItem",
+            "dynamodb:DeleteItem",
+            "dynamodb:GetItem",
+            "dynamodb:Scan",
+            "dynamodb:Query",
+            "dynamodb:UpdateItem"
+        ],
+        "Resource": "arn:aws:dynamodb:us-east-1:197877511342:table/LivroDeVisitas"
+    }
+    ]
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Livro de Visitas</title>
+    
+    <link href="styles.css" rel="stylesheet" />
+    <script src="config.js"></script>
+    <script>
+        // define the callAPI function that takes a first name and last name as parameters
+        var callAPI = (firstName,lastName)=>{
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");            
+            var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+            
+            // cria um JSON object com os parâmetros da for
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // chama a API
+            fetch(API_GATEWAY_URL, requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+            
+            // Limpa a tela
+            document.getElementById('Nome').value = '';
+            document.getElementById('Sobrenome').value = '';
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <div class="campo">
+          <label>Seu Nome:</label>
+          <input type="text" id="Nome" placeholder="Seu Nome">
+        </div>
+        <div class="campo">
+          <label>Sobrenome:</label>
+          <input type="text" id="Sobrenome" placeholder="Seu Sobrenome">
+        </div>
+        <!-- Botão executa o APIGateway passando os parâmetros -->
+        <div class="campo">
+          <button type="button" onclick="callAPI(document.getElementById('Nome').value,document.getElementById('Sobrenome').value)">Registre-se<BR> via API</button>
+        </div>
+    </form>
+</body>
+</html>
