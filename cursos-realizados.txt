@@ -1,5 +1,5 @@
 Lista de Cursos que eu fiz para:
-- entender de "AWS";
+- entender "de AWS";
 - e conseguir minha certificação AWS.
 
 === AWS ===
@@ -17,6 +17,9 @@ Lista de Cursos que eu fiz para:
   * Get AWS Certified: Solutions Architect Challenge
   * AWS Well-Architected
   * The AWS Certification Quiz Show: Solutions Architect - Associate exam
+  * AWS Shared Responsibility Model
+  * Introduction to AWS Billing and Cost Management
+  * Build and Deploy APIs with a Serverless CI/CD
 
 - Coursera fornecido por Amazon Web Services
   * Introduction to AWS Identity and Access Management
@@ -37,6 +40,13 @@ Lista de Cursos que eu fiz para:
 
 - Udemy
   * Ultimate AWS Certified Solutions Architect Associate 2021
+
+- Amazon Qwiklabs (laboratórios práticos)
+  * Introduction to Amazon CloudFront
+  * Introduction to AWS Key Management Service
+  * Introduction to Amazon Redshift
+  * Introduction to Amazon DynamoDB
+  * Entre outros
 
 === Outros ===
 Também estou seguindo uma trilha/estratégia Multi Cloud.
