@@ -2,34 +2,36 @@ Lista de Cursos que eu fiz para:
 - entender "de AWS";
 - e conseguir minha certificação AWS.
 
-=== AWS ===
+=====  AWS  =====
 - AWS Training and Certification
   * AWS Cloud Practitioner Essentials
   * Getting Started with Cloud Acquisition
   * Getting Started with Amazon Simple Storage Service (Amazon S3)
-  * Job Roles in the Cloud
-  * AWS Security Fundamentals (Second Edition)
   * Amazon Simple Storage Service (Amazon S3) Business Continuity and Disaster Recovery
+  * AWS Security Fundamentals (Second Edition)
   * AWS Technical Essentials
-  * AWS Tecnhical Essentials Day
-  * AWS Get Certified - Solutions Architect - Associate (Get Certified event)
-  * Get AWS Certified Challenge (Cloud Practitioner)
-  * Get AWS Certified: Solutions Architect Challenge
+  * Job Roles in the Cloud
   * AWS Well-Architected
-  * The AWS Certification Quiz Show: Solutions Architect - Associate exam
   * AWS Shared Responsibility Model
   * Introduction to AWS Billing and Cost Management
-  * Build and Deploy APIs with a Serverless CI/CD
+  * Introduction to Serverless Development
+  * Introduction to AWS Solutions
+  * AWS Systems Manager
 
 - Coursera fornecido por Amazon Web Services
   * Introduction to AWS Identity and Access Management
   * AWS Fundamentals: Going Cloud-Native
 
-  AWS specialization
+  Specialization: AWS Fundamentals
   * AWS Cloud Technical Essentials
   * AWS Fundamentals: Addressing Security Risk
   * AWS Fundamentals: Migrating to the Cloud
   * AWS Fundamentals: Building Serverless Applications
+
+  Specialization: Modern Application Development with .NET on AWS [CURSANDO]
+  * AWS Cloud Technical Essentials
+  * Building Modern .NET Applications on AWS
+  * Amazon DynamoDB: Building NoSQL Database-Driven Applications
 
 - IFSP: Instituto Federal de São Paulo
   * AWS Academy Cloud Foundations (ACF)
@@ -46,9 +48,26 @@ Lista de Cursos que eu fiz para:
   * Introduction to AWS Key Management Service
   * Introduction to Amazon Redshift
   * Introduction to Amazon DynamoDB
-  * Entre outros
+  * Introduction to AWS Lambda
+  * Introduction to Amazon API Gateway
+  * Introduction to Amazon Elastic Block Store (Amazon EBS)
+  * Introduction to AWS Identity and Access Management (IAM)
+  * Introduction to Amazon Simple Storage Service (S3)
 
-=== Outros ===
+- AWS Training and Certification (cursos focados na certificação ou que se assemelham a workshops)
+  * AWS Tecnhical Essentials Day
+  * Get AWS Certified Challenge (Cloud Practitioner)
+  * Get AWS Certified: Solutions Architect Challenge
+  * AWS Get Certified - Solutions Architect - Associate (Get Certified event)
+  * The AWS Certification Quiz Show: Solutions Architect - Associate exam
+  * Build and Deploy APIs with a Serverless CI/CD
+  * Let’s Ship It — with AWS
+  * Exam Readiness: AWS Certified Solutions Architect – Associate
+  * Introduction to Amazon Elastic Compute Cloud (EC2)
+  * Introduction to EC2 Auto Scaling
+  * Introduction to AWS Fargate
+
+=====  Outros  =====
 Também estou seguindo uma trilha/estratégia Multi Cloud.
 
 - Ka Solution

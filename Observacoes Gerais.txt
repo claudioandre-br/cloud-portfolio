@@ -14,3 +14,4 @@ Diretório de Pessoas:
 
 Serverless:
 - Incluir autenticação e usar Cognito via Federação de usuários.
+- No "livro de visitas" mover a inicialização do horário para dentro do handler.
