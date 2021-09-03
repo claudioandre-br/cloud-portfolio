@@ -64,7 +64,7 @@ Neste tópico, eu salvei coisas interessantes relacionadas ao controle de acesso
 
 Clique no link para visualizar [os exemplos que criei](IAM#policies).
 
-O fluxograma abaixo demonstra de forma simplificada como a avaliação sobre conceder ou não direitos a um usuário funciona. Contudo, muitos outros fatores influenciam esta decisão, como você poder ver no [fluxograma desta página](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow).
+O fluxograma abaixo demonstra de forma simplificada [1] como a avaliação sobre conceder ou não direitos a um usuário funciona. Contudo, muitos outros fatores influenciam esta decisão, como você poder ver no [fluxograma desta página](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow).
 
 [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgICBBMShSZXF1aXNpw6fDo288YnI-ZmVpdGEgcGVsbzxicj51c3XDoXJpbyByb290PylcbiAgICBBMihQZXJtaXRpZG8pXG5cbiAgICBCMShGb2kgbmVnYWRvPGJyPmV4cGxpY2l0YW1lbnRlPylcbiAgICBCMihFeHBsaWNpdCBEZW55KVxuXG4gICAgQzEoRm9pIHBlcm1pdGlkbzxicj5leHBsaWNpdGFtZW50ZT8pXG4gICAgQzIoUGVybWl0aWRvKVxuICAgIEMzKEltcGxpY2l0IERlbnkpXG5cbiAgICBBMSAtLT58U2ltfCBBMlxuICAgIEExIC0tPnxOw6NvfCBCMVxuICAgIEIxIC0tPnxTaW18IEIyXG4gICAgQjEgLS0-fE7Do298IEMxXG4gICAgQzEgLS0-fFNpbXwgQzJcbiAgICBDMSAtLT58TsOjb3wgQzNcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6dHJ1ZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOnRydWV9)](IAM#policies)
 
@@ -73,6 +73,12 @@ Para criar policies, beba da fonte mais pura. Use estes exemplos:
 
 Ou use uma GUI para te auxiliar a iniciar a jornada:
 - https://awspolicygen.s3.amazonaws.com/policygen.html
+
+[1] Dizer que não se pode restringir o acesso do root user é uma simplificação.
+    O root user é o proprietário da conta e pode administrá-la, mas, via
+    SCP o root pode ser limitado dentro da organização e, via policies, você
+    também consegue proteger recursos de "erros" de um usuário root.
+    Veja um exemplo no commit c986b723c6dfc87572af578b2ded2309f75f49d9.
 
 ## Cursos Recomendados
 
