@@ -3,7 +3,7 @@ Lista de Cursos que eu fiz para:
 - e conseguir minha certificação AWS.
 
 =====  AWS  =====
-- AWS Training and Certification
+- AWS Training and Certification [1]
   * AWS Cloud Practitioner Essentials
   * Getting Started with Cloud Acquisition
   * Getting Started with Amazon Simple Storage Service (Amazon S3)
@@ -17,8 +17,9 @@ Lista de Cursos que eu fiz para:
   * Introduction to Serverless Development
   * Introduction to AWS Solutions
   * AWS Systems Manager
+  * Architecting Serverless Solutions
 
-- Coursera fornecido por Amazon Web Services
+- Coursera fornecido por Amazon Web Services [2]
   * Introduction to AWS Identity and Access Management
   * AWS Fundamentals: Going Cloud-Native
 
@@ -54,7 +55,7 @@ Lista de Cursos que eu fiz para:
   * Introduction to AWS Identity and Access Management (IAM)
   * Introduction to Amazon Simple Storage Service (S3)
 
-- AWS Training and Certification (cursos focados na certificação ou que se assemelham a workshops)
+- AWS Training and Certification [1] (cursos focados na certificação ou que se assemelham a workshops)
   * AWS Tecnhical Essentials Day
   * Get AWS Certified Challenge (Cloud Practitioner)
   * Get AWS Certified: Solutions Architect Challenge
@@ -79,3 +80,12 @@ Também estou seguindo uma trilha/estratégia Multi Cloud.
 - Microsoft Azure Training Day(s)
   * Data Fundamentals
   * Fundamentals
+
+
+=====  Notas de Rodapé  =====
+[1] Do site de treinamentos da AWS:
+    - The only set of training programs and offerings built by the experts at AWS.
+
+[2] Cursos desenvolvidos pela AWS Training and Certification:
+    - Com os mesmos instrutores e qualidade de edição dos cursos oferecidos diretamente pela
+      AWS Training and Certification.
