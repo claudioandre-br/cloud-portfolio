@@ -63,3 +63,11 @@ A aplicação é:
 O diagrama da máquina de estados usado para funcionamento assíncrono usado para salvar dados novos:
 
 ![](Screenshots/stepfunctions_graph.png)
+
+O diagrama da máquina de estados quando evento é incluído:
+
+![](Screenshots/stepfunctions_Ok.png)
+
+O diagrama da máquina de estados quando evento não é válido:
+
+![](Screenshots/stepfunctions_Duplicado.png)
