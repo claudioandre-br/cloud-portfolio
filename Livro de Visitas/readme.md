@@ -8,7 +8,7 @@ Eu fiz um site estático que, via API Gateway, registra os visitantes do site.
 - O site é um "Livro de Visitas";
 - O objetivo é incluir os dados digitados pelo usuário em um banco de dados.
 
-Esta aplicação utiliza os serviços serverless Amazon CloudFront, o Amazon DynamoDB, o Amazon API Gateway e o 
+Esta aplicação utiliza os serviços serverless Amazon CloudFront, o Amazon DynamoDB, o Amazon API Gateway e o
 AWS Amplify. A aplicação contém:
 
 - Uma interface web (site estático);
@@ -18,7 +18,7 @@ AWS Amplify. A aplicação contém:
 ### Como Tudo Funciona
 
 Acesse o app via:
-- https://dev.d39s1d4kron4ae.amplifyapp.com/ 
+- https://dev.d39s1d4kron4ae.amplifyapp.com/
 
 Funcionamento
 - o site HTML chama uma API REST definida no API Gateway;

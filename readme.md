@@ -19,6 +19,7 @@ Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, es
 1. [Portfolio de Cloud (Aplicações de Demonstração e Exemplo)](#aplicações)
     1. [Aplicação "Diretório de Funcionários"](#aplicação-demo-i-diretório-de-funcionários)
     1. [Aplicação "Clima no Campus"](#aplicação-demo-ii-clima-no-campus)
+    1. [Aplicação "Registro de Eventos"](#aplicação-demo-iii-registro-de-eventos)
 1. [AWS Identity and Access Management](#aws-identity-and-access-management-aws-iam)
 6. [Cursos AWS que são um show](#cursos-recomendados)
 7. [Segurança](#security)
@@ -57,6 +58,16 @@ Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link pa
 - O bot para interação é capaz de reconhecimento de fala e compreensão de linguagem natural;
 - Uso de CDN para melhorar a experiência no usuário;
 - O S3 **NÃO** está com acesso público (apenas o CloudFront pode acessar a origem).
+
+### Aplicação Demo III "Registro de Eventos"
+
+Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link para visualizar como eu [implementei a solução](registroEventos#causos-da-roça).
+
+#### Pontos a Destacar na Implementação
+- Aplicação 100% serverless;
+- Autenticação via Cognito (possui controle de acesso "serverless");
+- Utiliza processamento assíncrono (usuário posta uma requisição de forma assíncrona e recebe resposta ao fim do processamento);
+- Uso de CDN para melhorar a experiência no usuário.
 
 ### AWS Identity and Access Management (AWS IAM)
 

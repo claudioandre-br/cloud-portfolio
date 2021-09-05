@@ -1,0 +1,37 @@
+NÃO Precisei adicionar um Grantee no Access control list (ACL)
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Allow read write permissions",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::AWS_ACC_ID:role/modern-readwrite-lambda-role"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::casos-app/*"
+        },
+        {
+            "Sid": "Allow read permissions",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::AWS_ACC_ID:role/modern-read-lambda-role"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::casos-app/*"
+        },
+        {
+            "Sid": "Allow list permissions",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::AWS_ACC_ID:role/modern-read-lambda-role"
+            },
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::casos-app"
+        }
+    ]
+}

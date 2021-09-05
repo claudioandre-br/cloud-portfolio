@@ -1,0 +1,8 @@
+[
+    {
+        "description_str": "Nesta data iremos concluir a migração do sistema de agendamento de eventos para a AWS. A data é de festa, a migração foi um sucesso e o novo sistema é 100% serverless.",
+        "evento_name_str": "Deploy do Sistema",
+        "type_str": "Festa",
+        "local_str": "Jacareí"
+    }
+]

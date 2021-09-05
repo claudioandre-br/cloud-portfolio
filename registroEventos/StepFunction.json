@@ -1,0 +1,74 @@
+{
+  "Comment": "O evento será validado. Se a validação falhar, uma mensagem de falha será enviada. Se o evento for válido e não existir no banco, ele será adicionado ao DB e uma mensagem de sucesso será enviada.",
+  "StartAt": "ValidateEvento",
+  "States": {
+    "ValidateEvento": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:AWS_ACC_ID:function:ValidateEvento",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "EventoValidationException"
+          ],
+          "Next": "AlertEventoValidationFailure",
+          "ResultPath": null
+        },
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "Next": "CatchAllFailure"
+        }
+      ],
+      "Next": "AddEvento",
+      "ResultPath": null
+    },
+    "AlertEventoValidationFailure": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "Message": "O evento por você informado não passou na validação, portanto, não foi adicionado ao banco.",
+        "PhoneNumber.$": "$.reportingPhoneNumber"
+      },
+      "End": true
+    },
+    "CatchAllFailure": {
+      "Type": "Fail",
+      "Cause": "ERRO: AlertEventoValidationFailure (unknown)."
+    },
+    "AddEvento": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:AWS_ACC_ID:function:AddEvento",
+      "Next": "ConfirmationRequired",
+      "ResultPath": null
+    },
+    "ConfirmationRequired": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.confirmationRequired",
+          "BooleanEquals": true,
+          "Next": "AlertAddEventoSuccess"
+        },
+        {
+          "Variable": "$.confirmationRequired",
+          "BooleanEquals": false,
+          "Next": "NoAlertAddEventoSuccess"
+        }
+      ],
+      "Default": "CatchAllFailure"
+    },
+    "AlertAddEventoSuccess": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "Message": "Seu evento foi adicionado ao banco de dados!",
+        "PhoneNumber.$": "$.reportingPhoneNumber"
+      },
+      "End": true
+    },
+    "NoAlertAddEventoSuccess": {
+      "Type": "Succeed"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "apigateway:*",
+        "lambda:*",
+        "s3:*",
+        "ssm:*",
+        "logs:*",
+        "iam:*",
+        "cloudwatch:*",
+        "cognito-identity:*",
+        "cognito-idp:*",
+        "states:*",
+        "kms:ListAliases",
+        "xray:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

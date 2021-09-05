@@ -1,0 +1,59 @@
+Criar cognito
+   eventosApp-pool
+   API GW: cognito-authorizer
+
+Substituir os marcadores
+   AWS_ACC_ID
+   COGNITO_ID
+
+Criar as policies e roles lambda
+-> Adicionar o AWSLambdaBasicExecutionRole aos roles, ela é necessária.
+-> Descrição: Policy to allow modern-app lambda do its job.
+   modern-read-policy      e modern-readwrite-policy
+   modern-read-lambda-role e modern-readwrite-lambda-role
+
+Criar as funções Lambda
+   Via Visual Studio
+
+Importar a API Gateway
+   EventosApp-prod-oas30-apigateway.yaml (sync ou async)
+
+Substituir os marcadores
+   API_GW_ID
+
+Votar ao Lambda
+-> Alterar a resource policy (as permissões de quem pode executá-las) das funções lambda.
+   addEventosPolicy.json e valida (somente se for sem Step Funcion)
+   listEventosPolicy.json
+
+Criar as policies e roles API Gateway (necessário para executar Step Function)
+-> Somente com Step Function
+-> Descrição: Policy to allow modern-app API access Step Funcions.
+   eventos-apiGW-policy
+   eventos-apiGW-role
+
+Criar a Step Function
+EventosStateMachine
+   StepFunction.json
+
+Substituir os marcadores
+   STATE_MACHINE_ARN
+
+# -----------------------------------------
+replace_ids_with_values() {
+
+    if [[ "$#" -ne 2 ]]; then
+        echo "Illegal number of parameters"
+        exit 1
+    fi
+    SRC=$1
+    DST=$2
+
+    readarray -td '' files < <(
+        grep -RilZ "$SRC" .
+    )
+    for file in "${files[@]}"; do   sed -i "s,$SRC,$DST,g" "$file"; done
+}
+
+# Exemplo
+# replace_ids_with_values  AWS_ACC_ID   187911775342

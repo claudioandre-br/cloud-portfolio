@@ -1,0 +1,22 @@
+Se eu não usar Step Function
+
+{
+  "Version": "2012-10-17",
+  "Id": "default",
+  "Statement": [
+    {
+      "Sid": "AllowAPIGateway",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "apigateway.amazonaws.com"
+      },
+      "Action": "lambda:InvokeFunction",
+      "Resource": "arn:aws:lambda:us-east-1:AWS_ACC_ID:function:AddEvento",
+      "Condition": {
+        "ArnLike": {
+          "AWS:SourceArn": "arn:aws:execute-api:us-east-1:AWS_ACC_ID:API_GW_ID/*/POST/events"
+        }
+      }
+    }
+  ]
+}
