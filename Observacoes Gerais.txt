@@ -16,4 +16,4 @@ Serverless:
 - Incluir autenticação e usar Cognito via Federação de usuários.
 - No "livro de visitas" mover a inicialização do horário para dentro do handler.
 - No "registro de eventos" estudar se o cache está adequado (eu tive problemas, mas estava desenvolvendo)
-
+- Usar IaC para criar os policies e roles do "registro de eventos" (é a única parte cansativa de se lidar).
