@@ -63,6 +63,8 @@ Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link pa
 
 Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link para visualizar como eu [implementei a solução](registroEventos#causos-da-roça).
 
+[![ Diagrama de Arquitetura](registroEventos/NoBack-RegistroDeEventos.png)](registroEventos#causos-da-roça)
+
 #### Pontos a Destacar na Implementação
 - Aplicação 100% serverless;
 - Autenticação via Cognito (possui controle de acesso "serverless");
