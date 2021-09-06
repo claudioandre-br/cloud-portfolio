@@ -14,6 +14,11 @@ Diretório de Pessoas:
 
 Serverless:
 - Incluir autenticação e usar Cognito via Federação de usuários.
+
+Serverless (Livro de Visitas):
 - No "livro de visitas" mover a inicialização do horário para dentro do handler.
-- No "registro de eventos" estudar se o cache está adequado (eu tive problemas, mas estava desenvolvendo)
+
+Serverless (Registro de Eventos):
+- No "registro de eventos" estudar se o cache está adequado (eu tive problemas com cache persistente, mas estava na fase "desenvolvendo" em "que tudo muda o tempo tudo")
 - Usar IaC para criar os policies e roles do "registro de eventos" (é a única parte cansativa de se lidar).
+- No final, talvez eu tenha que habilitar o Grantee mesmo (aparentemente, estou com problemas de permissão novamente, ao que parece, quando uso via Cross-Account).
