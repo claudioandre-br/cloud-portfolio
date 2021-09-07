@@ -1,0 +1,20 @@
+Exemplo de função boa para testar:
+- https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-csharp
+
+  Dá para pensar em brincar com a depuração, especialmente, o debug remoto via Visual Studio.
+
+Necessário instalar para usar o Visual Studio com lambda:
+- AWS toolkit (extensão do Visual Studio). Instalado via Extensions > Manage Extensions.
+
+Para usar a depuração remota do lambda:
+- PS> dotnet tool install --global Amazon.Lambda.TestTool-3.1
+
+  O resto é padrão VS, F5, F9, F10, ..., Debug > Start Debugging, e assim por diante.
+
+Para depurar via linha de comando (de dentro do diretório do projeto):
+- PS> dotnet lambda-test-tool-3.1
+
+Para fazer deply via linha de comando (de dentro do diretório do projeto):
+- PS> dotnet tool install -g Amazon.Lambda.Tools
+- PS> dotnet lambda deploy-function
+- PS> dotnet lambda invoke-function
