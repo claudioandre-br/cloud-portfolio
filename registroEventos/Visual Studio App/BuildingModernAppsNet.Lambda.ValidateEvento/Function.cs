@@ -92,7 +92,7 @@ namespace BuildingModernAppsNet.Lambda.ValidateEvento
 
             // see also https://github.com/aws-samples/aws-netcore-webapp-using-amazonpersonalize/blob/main/AWS.Samples.Amazon.Personalize.Demo/Support/StorageService.cs
             var payload = selectObjectContentResponse.Payload;
-            var Eventos = new List<Evento>();
+            var eventos = new List<Evento>();
 
             using (payload)
             {
@@ -113,7 +113,7 @@ namespace BuildingModernAppsNet.Lambda.ValidateEvento
             }
         }
 
-        private string GetQuery(string EventoName)
+        private string GetQuery(string eventoName)
         {
             // Input for testing:
             // {  "evento_name_str": "Deploy do Sistema"  }
@@ -121,7 +121,7 @@ namespace BuildingModernAppsNet.Lambda.ValidateEvento
             // Worried about concatenating SQL strings, and injection attacks?  In our case we allow users to see
             // all of the data, there's also no UPDATE, INSERT or DELETE commands in S3 select
             // https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html
-            return $"select * from S3Object[*][*] s where s.Evento_name_str = '{EventoName}'";
+            return $"select * from S3Object[*][*] s where s.Evento_name_str = '{eventoName}'";
         }
     }
 }

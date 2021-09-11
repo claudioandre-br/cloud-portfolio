@@ -91,3 +91,16 @@ O diagrama da máquina de estados quando evento é incluído (um evento novo é 
 O diagrama da máquina de estados quando evento não é válido (um evento que já existe cadastrado é informado):
 
 ![](Screenshots/stepfunctions_Duplicado.png)
+
+### Analisando a Aplicação com X-Ray
+
+AWS X-Ray ajuda desenvolvedores a analisar uma aplicaçõe. Abaixo, note a enorme diferença entre o cold start e o warm start em uma função lambda:
+
+- Um “Cold start” é a primeira solicitação que um environment do Lambda atende. Essa solicitação leva mais tempo para ser processada porque o serviço Lambda precisa encontrar um espaço em uma máquina para alocar e inicializar o worker/container/environment.
+
+![](Screenshots/xRay-Cold-Initialization.png)
+
+- Observe que um "warm start" é quase 20 vezes mais rápido.
+- Note que não precisamos "pegar" novamente os valores no Parameter Store, portanto, ainda há espaço para melhorias.
+
+![](Screenshots/xRay-Warm-Initialization.png)

@@ -16,8 +16,8 @@
     "function-handler"     : "BuildingModernAppsNet.Lambda.ListEventos::BuildingModernAppsNet.Lambda.ListEventos.Function::FunctionHandler",
     "function-name"        : "ListEventos",
     "package-type"         : "Zip",
-    "function-role"        : "arn:aws:iam::AWS_ACC_ID:role/modern-readwrite-lambda-role",
-    "tracing-mode"         : "PassThrough",
+    "function-role"        : "arn:aws:iam::197877511342:role/modern-readwrite-lambda-role",
+    "tracing-mode"         : "Active",
     "environment-variables" : "",
     "image-tag"             : "",
     "function-description"  : "Lista os eventos contidos no DB conforme os filtros fornecidos."

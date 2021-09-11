@@ -7,7 +7,7 @@ Substituir os marcadores
    COGNITO_ID
 
 Criar as policies e roles lambda
--> Adicionar o AWSLambdaBasicExecutionRole aos roles, ela é necessária.
+-> Adicionar o AWSLambdaBasicExecutionRole e AWSXrayWriteOnlyAccess aos roles, ela é necessária.
 -> Descrição: Policy to allow modern-app lambda do its job.
    modern-read-policy      e modern-readwrite-policy
    modern-read-lambda-role e modern-readwrite-lambda-role

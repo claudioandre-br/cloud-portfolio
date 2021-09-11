@@ -33,6 +33,7 @@ using Amazon.S3.Model;
 using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
 using BuildingModernAppsNet.Model;
+using Amazon.XRay.Recorder.Handlers.AwsSdk;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
@@ -44,8 +45,20 @@ namespace BuildingModernAppsNet.Lambda.ListEventos
     /// </summary>
     public class Function
     {
-        private AmazonSimpleSystemsManagementClient ssm = new AmazonSimpleSystemsManagementClient();
-        private AmazonS3Client s3 = new AmazonS3Client();
+        private AmazonSimpleSystemsManagementClient ssm;
+        private AmazonS3Client s3;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Function"/> class.
+        /// Constructor da classe.
+        /// </summary>
+        public Function()
+        {
+            // Add AWSSDKHandler.RegisterXRayForAllServices() before other AWS SDK classes are instantiated.
+            AWSSDKHandler.RegisterXRayForAllServices();
+            this.ssm = new AmazonSimpleSystemsManagementClient();
+            this.s3 = new AmazonS3Client();
+        }
 
         /// <summary>
         /// Lambda function handler.
@@ -55,11 +68,12 @@ namespace BuildingModernAppsNet.Lambda.ListEventos
         /// <returns>API gateway response.</returns>
         public async Task<APIGatewayProxyResponse> FunctionHandler(APIGatewayProxyRequest input, ILambdaContext context)
         {
-            GetParameterResponse bucketResponse = await this.ssm.GetParameterAsync(new GetParameterRequest { Name = "modern_app_bucket_name" });
-            string bucketname = bucketResponse.Parameter.Value;
-
-            GetParameterResponse fileResponse = await this.ssm.GetParameterAsync(new GetParameterRequest { Name = "modern_app_db_name" });
-            string filename = fileResponse.Parameter.Value;
+            var parameters = await this.ssm.GetParametersAsync(new GetParametersRequest
+            {
+                Names = new List<string> { "modern_app_bucket_name", "modern_app_db_name" },
+            });
+            string bucketname = parameters.Parameters[0].Value;
+            string filename = parameters.Parameters[1].Value;
 
             var query = this.GetQuery(input.QueryStringParameters);
             var request = new SelectObjectContentRequest
