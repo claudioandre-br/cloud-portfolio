@@ -8,10 +8,9 @@ Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, es
 
 <center>
 
-|              |          |             |             |
-:-------------:|:-------------:|:-------------:|:-------------:
+|       | _GitHub <br /> Arctic Code <br /> Vault <br />Contributor_ |       |       |
+:----------:|:----------:|:----------:|:----------:
 ![](.badges/img4.png)  |![](.badges/img1.png)  |  ![](.badges/img2.png) |  ![](.badges/img3.png)
-| .................................... | _GitHub Arctic Code <br /> Vault Contributor_ | .................................... | .................................... |
 
 </center>
 
@@ -91,7 +90,7 @@ Ou use uma GUI para te auxiliar a iniciar a jornada:
     O root user é o proprietário da conta e pode administrá-la, mas, via
     SCP o root pode ser limitado dentro da organização e, via policies, você
     também consegue proteger recursos de "erros" de um usuário root.
-    Veja um exemplo no commit c986b723c6dfc87572af578b2ded2309f75f49d9.
+    Veja um exemplo no commit [c986b723c6dfc87572af578b2ded2309f75f49d9](https://github.com/claudioandre-br/cloud-portfolio/commit/c986b723c6dfc87572af578b2ded2309f75f49d9).
 
 ## Cursos Recomendados
 
