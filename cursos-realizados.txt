@@ -29,7 +29,7 @@ Lista de Cursos que eu fiz para:
   * AWS Fundamentals: Migrating to the Cloud
   * AWS Fundamentals: Building Serverless Applications
 
-  Specialization: Modern Application Development with .NET on AWS [CURSANDO]
+  Specialization: Modern Application Development with .NET on AWS
   * AWS Cloud Technical Essentials
   * Building Modern .NET Applications on AWS
   * Amazon DynamoDB: Building NoSQL Database-Driven Applications
@@ -55,15 +55,14 @@ Lista de Cursos que eu fiz para:
   * Introduction to AWS Identity and Access Management (IAM)
   * Introduction to Amazon Simple Storage Service (S3)
 
-- AWS Training and Certification [1] (cursos focados na certificação ou que se assemelham a workshops)
-  * AWS Tecnhical Essentials Day
+- AWS Training and Certification [1] (outros cursos focados na certificação ou que se assemelham a workshops)
   * Get AWS Certified Challenge (Cloud Practitioner)
   * Get AWS Certified: Solutions Architect Challenge
   * AWS Get Certified - Solutions Architect - Associate (Get Certified event)
   * The AWS Certification Quiz Show: Solutions Architect - Associate exam
-  * Build and Deploy APIs with a Serverless CI/CD
-  * Let’s Ship It — with AWS
   * Exam Readiness: AWS Certified Solutions Architect – Associate
+  * AWS Tecnhical Essentials Day
+  * Build and Deploy APIs with a Serverless CI/CD
   * Introduction to Amazon Elastic Compute Cloud (EC2)
   * Introduction to EC2 Auto Scaling
   * Introduction to AWS Fargate

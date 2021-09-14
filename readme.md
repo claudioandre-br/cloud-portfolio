@@ -16,9 +16,9 @@ Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, es
 
 # Índice
 1. [Portfolio de Cloud (Aplicações de Demonstração e Exemplo)](#aplicações)
-    1. [Aplicação "Diretório de Funcionários"](#aplicação-demo-i-diretório-de-funcionários)
-    1. [Aplicação "Clima no Campus"](#aplicação-demo-ii-clima-no-campus)
-    1. [Aplicação "Registro de Eventos"](#aplicação-demo-iii-registro-de-eventos)
+    1. [Aplicação "Diretório de Funcionários"](#demo-i-diretório-de-funcionários)
+    1. [Aplicação "Clima no Campus"](#demo-ii-clima-no-campus)
+    1. [Aplicação "Registro de Eventos"](#demo-iii-registro-de-eventos)
 1. [AWS Identity and Access Management](#aws-identity-and-access-management-aws-iam)
 6. [Cursos AWS que são um show](#cursos-recomendados)
 7. [Segurança](#security)
@@ -28,7 +28,7 @@ Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, es
 
 Portfólio Cloud criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, estudar ou demonstrar boas práticas em Cloud.
 
-### Aplicação Demo I "Diretório de Funcionários"
+### Demo I "Diretório de Funcionários"
 
 Aplicação desenvolvida pela AWS Training. Clique no link para visualizar como eu [implementei a solução](diretorio-pessoas#diretório-de-funcionários).
 
@@ -45,7 +45,7 @@ Aplicação desenvolvida pela AWS Training. Clique no link para visualizar como 
 
 Application Load Balancer (ALB) é um dos tipos de Elastic Load Balancer (ELB).
 
-### Aplicação Demo II "Clima no Campus"
+### Demo II "Clima no Campus"
 
 Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link para visualizar como eu [implementei a solução](serverless#serverless).
 
@@ -58,7 +58,7 @@ Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link pa
 - Uso de CDN para melhorar a experiência no usuário;
 - O S3 **NÃO** está com acesso público (apenas o CloudFront pode acessar a origem).
 
-### Aplicação Demo III "Registro de Eventos"
+### Demo III "Registro de Eventos"
 
 Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link para visualizar como eu [implementei a solução](registroEventos#causos-da-roça).
 
@@ -124,7 +124,7 @@ A AWS oferece muito material gratuito para treinamento:
 
 Fiz minha revisão para a prova de arquiteto usando o curso Udemy do Stephane Maarek (recomendo). Custo baixo em um curso muito bom.
 
-[1] Alguns cursos, apesar de interessantes e gratuitos, não foram listados para manter a objetividade e brevidade. Gostei bastante dos cursos oficiais, alguns estão disponíveis em alguma plataforma (por exemplo, curso desenvolvido pela AWS e disponível no Coursera). Valem muito a pena: profundidade e a precisão na medida certa.
+[1] Para manter a brevidade, alguns cursos não foram listados. Gostei bastante dos cursos oficiais, alguns estão disponíveis em alguma plataforma (por exemplo, curso desenvolvido pela AWS e disponível no Coursera). Valem muito a pena: profundidade e a precisão na medida certa.
 
 [2] Curso muito interessante.
 

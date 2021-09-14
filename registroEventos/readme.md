@@ -101,6 +101,6 @@ AWS X-Ray ajuda desenvolvedores a analisar uma aplicaçõe. Abaixo, note a enorm
 ![](Screenshots/xRay-Cold-Initialization.png)
 
 - Observe que um "warm start" é quase 20 vezes mais rápido.
-- Note que não precisamos "pegar" novamente os valores no Parameter Store, portanto, ainda há espaço para melhorias.
+- Repare que não precisamos "pegar" novamente os valores no Parameter Store, portanto, ainda há espaço para melhorias.
 
 ![](Screenshots/xRay-Warm-Initialization.png)
