@@ -18,6 +18,9 @@ Lista de Cursos que eu fiz para:
   * Introduction to AWS Solutions
   * AWS Systems Manager
   * Architecting Serverless Solutions
+  * AWS Lambda Foundations
+  * Amazon API Gateway for Serverless Applications
+  * Amazon DynamoDB for Serverless Architectures
 
 - Coursera fornecido por Amazon Web Services [2]
   * Introduction to AWS Identity and Access Management
@@ -58,9 +61,9 @@ Lista de Cursos que eu fiz para:
 - AWS Training and Certification [1] (outros cursos focados na certificação ou que se assemelham a workshops)
   * Get AWS Certified Challenge (Cloud Practitioner)
   * Get AWS Certified: Solutions Architect Challenge
-  * AWS Get Certified - Solutions Architect - Associate (Get Certified event)
   * The AWS Certification Quiz Show: Solutions Architect - Associate exam
   * Exam Readiness: AWS Certified Solutions Architect – Associate
+  * AWS Get Certified - Solutions Architect - Associate (Get Certified event)
   * AWS Tecnhical Essentials Day
   * Build and Deploy APIs with a Serverless CI/CD
   * Introduction to Amazon Elastic Compute Cloud (EC2)
