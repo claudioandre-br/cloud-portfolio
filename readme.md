@@ -8,9 +8,9 @@ Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, es
 
 <center>
 
-|       | _GitHub <br /> Arctic Code <br /> Vault <br />Contributor_ |       |       |
-:----------:|:----------:|:----------:|:----------:
-![](.badges/img4.png)  |![](.badges/img1.png)  |  ![](.badges/img2.png) |  ![](.badges/img3.png)
+| | | | _GitHub <br /> Arctic Code <br /> Vault <br />Contributor_ | |
+:----------:|:----------:|:----------:|:----------:|:----------:
+![](.badges/img4.png) |  ![](.badges/img2.png) |  ![](.badges/img3.png) | ![](.badges/img1.png) | ![](.badges/img5.png)
 
 </center>
 
@@ -94,7 +94,7 @@ Ou use uma GUI para te auxiliar a iniciar a jornada:
 
 ## Cursos Recomendados
 
-Este tópico lista _alguns_[1] cursos AWS que eu fiz e recomendo. São cursos oficiais, desenvolvidos e produzidos pela própria AWS; em alguns casos, operacionalizados por instituições credenciadas (`instituições reconhecidas de ensino superior`), mas todo o material audiovisual é de autoria da AWS.
+Este tópico lista _alguns_[1] cursos AWS que eu fiz. São cursos oficiais, desenvolvidos e produzidos pela própria AWS; em alguns casos, operacionalizados por instituições credenciadas (`instituições reconhecidas de ensino superior`), mas todo o material audiovisual é de autoria da AWS.
 
 - _AWS Training and Certification_
   * AWS Cloud Practitioner Essentials (**ES·PE·TA·CU·LAR**)
