@@ -10,7 +10,9 @@ Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, es
 
 | | | | _GitHub <br /> Arctic Code <br /> Vault <br />Contributor_ | |
 :----------:|:----------:|:----------:|:----------:|:----------:
-![](.badges/img4.png) |  ![](.badges/img2.png) |  ![](.badges/img3.png) | ![](.badges/img1.png) | ![](.badges/img5.png)
+![](.badges/img4.png) | ![](.badges/img5.png) <br /> AZ-900 | ![](.badges/img6.png) <br /> DP-900 |
+![](.badges/img2.png) | ![](.badges/img3.png) |  | ![](.badges/img1.png)
+
 
 </center>
 
