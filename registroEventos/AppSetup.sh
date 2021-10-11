@@ -71,7 +71,8 @@ aws ssm put-parameter \
   aws lambda list-functions --query 'Functions[].FunctionArn'
 
 # ------------------ Cross Account ------------------
-# Não funcionou. Eu mantive o Cognito e o bucket na conta de origem.
+# O tempo para sincronizar o IAM foi relativamente alto.
+# Eu mantive o Cognito e o bucket na conta de origem.
 # API Gateway e as funções lambda estão na conta destino. Esta conta tem Step Functions e funciona
-# Eu usei o lab LEVEL 300: LAMBDA CROSS ACCOUNT USING BUCKET POLICY para obter conhecimento sobre o assunto.
+# Eu usei o lab LEVEL 300: LAMBDA CROSS ACCOUNT USING BUCKET POLICY para certificar meu conhecimento sobre o assunto.
   aws lambda add-permission   --function-name "arn:aws:lambda:us-east-1:AWS_ACC_ID:function:ListEventos"   --source-arn "arn:aws:execute-api:us-east-1:AWS_ACC_ID:API_GW_ID/*/GET/events"   --principal apigateway.amazonaws.com   --statement-id 3c9cf394-47d6-46e2-8677-266f4ac0e281   --action lambda:InvokeFunction

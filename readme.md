@@ -8,10 +8,10 @@ Foi criado para armazenar projetos-exemplo que sirvam para discutir, avaliar, es
 
 <center>
 
-| | | | _GitHub <br /> Arctic Code <br /> Vault <br />Contributor_ | |
+| <br />AWS Certified<br />Solutions<br />Architect | | | | GitHub<br />Arctic Code<br />Vault<br />Contributor |
 :----------:|:----------:|:----------:|:----------:|:----------:
-![](.badges/img4.png) | ![](.badges/img5.png) <br /> AZ-900 | ![](.badges/img6.png) <br /> DP-900 |
-![](.badges/img2.png) | ![](.badges/img3.png) |  | ![](.badges/img1.png)
+ | ![](.badges/img7.png) | ![](.badges/img4.png) | ![](.badges/img5.png) <br /> AZ-900 | ![](.badges/img6.png) <br /> DP-900 |
+ | | ![](.badges/img2.png) | ![](.badges/img3.png) |  | ![](.badges/img1.png)
 
 
 </center>
@@ -72,7 +72,7 @@ Aplicação adaptada de um app desenvolvido pela AWS Training. Clique no link pa
 - Utiliza processamento assíncrono (usuário posta uma requisição de forma assíncrona e recebe resposta ao fim do processamento);
 - Uso de CDN para melhorar a experiência no usuário.
 
-### AWS Identity and Access Management (AWS IAM)
+## AWS Identity and Access Management (AWS IAM)
 
 Neste tópico, eu salvei coisas interessantes relacionadas ao controle de acesso. Salvei alguns exemplos de policy (que eu criei no papel, sem testar) que são bons indicadores das possibilidades que o IAM oferece.
 

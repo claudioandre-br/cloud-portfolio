@@ -67,7 +67,7 @@ Desenvolver e depurar código lambda não é tão complicado como muita gente an
 - usar a interface gráfica da IDE;
 - ativar e avaliar o status do programa via breakpoints;
 - avaliar o valor de variáveis durante a execução;
-- além do padrão seguido desde o VB 6 sobre como se depura um programa, o Visual Studio também oferece outros recursos, como por exemplo, a possibilidade de publicar a função lambda diretamente da IDE, ou ainda, ou dados sobre a execução do programa.
+- além do padrão seguido desde o VB 6 sobre como se depura um programa, o Visual Studio também oferece outros recursos, como por exemplo, a possibilidade de publicar a função lambda diretamente da IDE, ou ainda, os dados sobre a execução do programa.
 
 A versão usada para desenvolvimento e testes da aplicação foi a Visual Studio Community 2019, sem custo algum.
 
