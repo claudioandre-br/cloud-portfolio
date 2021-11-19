@@ -11,11 +11,21 @@ Cloud Roles:
 - [DevOps Engineer](DevOps.png)
   - _A DevOps engineer must be able to build and operate fast and scalable workflows._
 
-### Projeto Serverless E-Commerce
+## Projeto Serverless E-Commerce
 
-Atividade relacionada ao evento AWS "Let’s Ship It — with AWS". Proposta de como seria a arquitetura de um site de e-commerce.
+Atividade relacionada ao evento AWS "Let’s Ship It — with AWS".
+
+Proposta de como seria a arquitetura de um site de e-commerce.
 
 ![](ShipIt%20AWS.png)
+
+## Projeto Desacoplar DB
+
+Atividade relacionada ao evento AWS "Get AWS Certified: Solutions Architect Challenge".
+
+Proposta focada em desacoplar o front end da gravação no banco de dados relacional. Ao usar esta abordagem picos ou oscilações no BD não impactam os usuários da aplicação, permitindo que um banco de dados tradicional siga em uso mesmo que se espere que o front end trabalhe para escala "web" (com picos de até milhões de transações por segundo).
+
+![](Decouple%20WebServer%20and%20Writing%20to%20DB.svg)
 
 **********
 
