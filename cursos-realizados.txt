@@ -21,6 +21,12 @@ Lista de Cursos que eu fiz para:
   * AWS Lambda Foundations
   * Amazon API Gateway for Serverless Applications
   * Amazon DynamoDB for Serverless Architectures
+  * Data Analytics Learning Plan
+
+- AWS Partner Learning Path: AWS Technical Professional [1]
+  * AWS Partner: Accreditation (Technical)
+  * AWS Partner: Data Analytics on AWS (Technical)
+  * AWS Partner: Cloud Economics Accreditation
 
 - Coursera fornecido por Amazon Web Services [2]
   * Introduction to AWS Identity and Access Management
