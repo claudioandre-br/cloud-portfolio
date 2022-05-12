@@ -27,45 +27,45 @@ resource "aws_autoscaling_group" "app-asg" {
   }
 
   tag {
-    key = "Name"
-    value = "asg-employee-directory"
+    key                 = "Name"
+    value               = "asg-employee-directory"
     propagate_at_launch = false
   }
   tag {
-    key = "Name"
-    value = "i-employee-directory"
+    key                 = "Name"
+    value               = "i-employee-directory"
     propagate_at_launch = true
   }
   tag {
-    key = "Environment"
-    value = var.domain
+    key                 = "Environment"
+    value               = var.domain
     propagate_at_launch = true
   }
   tag {
-    key = "Application Role"
-    value = var.role
+    key                 = "Application Role"
+    value               = var.role
     propagate_at_launch = true
   }
   tag {
-    key = "Owner"
-    value = var.owner
+    key                 = "Owner"
+    value               = var.owner
     propagate_at_launch = true
   }
   tag {
-    key = "Customer"
-    value = var.customer
+    key                 = "Customer"
+    value               = var.customer
     propagate_at_launch = true
   }
   tag {
-    key = "Confidentiality"
-    value = var.confidentiality
+    key                 = "Confidentiality"
+    value               = var.confidentiality
     propagate_at_launch = true
   }
 }
 
 resource "aws_autoscaling_notification" "scaling-notification" {
   group_names = [aws_autoscaling_group.app-asg.name]
-  topic_arn = aws_sns_topic.user_updates.arn
+  topic_arn   = aws_sns_topic.user_updates.arn
 
   notifications = [
     "autoscaling:EC2_INSTANCE_LAUNCH",
@@ -110,7 +110,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu-scaleup" {
     "AutoScalingGroupName" = aws_autoscaling_group.app-asg.name
   }
   actions_enabled = true
-  alarm_actions = [aws_autoscaling_policy.cpu-policy-scaleup.arn]
+  alarm_actions   = [aws_autoscaling_policy.cpu-policy-scaleup.arn]
 }
 
 # Scale-in alarm (decrease)
@@ -128,5 +128,5 @@ resource "aws_cloudwatch_metric_alarm" "cpu-scaledown" {
     "AutoScalingGroupName" = aws_autoscaling_group.app-asg.name
   }
   actions_enabled = true
-  alarm_actions = [aws_autoscaling_policy.cpu-policy-scaledown.arn]
+  alarm_actions   = [aws_autoscaling_policy.cpu-policy-scaledown.arn]
 }

@@ -28,15 +28,15 @@ data "aws_ami" "ubuntu" {
 data "aws_ami" "amazon-linux-2" {
   most_recent = true
 
- filter {
-   name   = "owner-alias"
-   values = ["amazon"]
- }
+  filter {
+    name   = "owner-alias"
+    values = ["amazon"]
+  }
 
- filter {
-   name   = "name"
-   values = ["amzn2-ami-hvm*"]
- }
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm*"]
+  }
 
   filter {
     name   = "architecture"
@@ -56,7 +56,7 @@ resource "aws_instance" "web-server" {
   key_name               = aws_key_pair.deploy.key_name
   instance_type          = var.instance["instance_type"]
   vpc_security_group_ids = [aws_security_group.webserver-sg.id]
-  count                  = "${var.spot != "yes" ? var.instance["count"] : 0}"
+  count                  = var.spot != "yes" ? var.instance["count"] : 0
   iam_instance_profile   = aws_iam_instance_profile.profile.name
 
   associate_public_ip_address = true
@@ -69,15 +69,15 @@ resource "aws_instance" "web-server" {
   # actually be used, otherwise the services will be unreachable.
   depends_on = [module.vpc.public_subnets, aws_security_group.webserver-sg]
 
-  user_data = "${file("start-up.sh")}"
+  user_data = file("start-up.sh")
 
   tags = {
-    Name = "i-employee-directory-app${count.index + 1}"
-    Environment = var.domain
+    Name               = "i-employee-directory-app${count.index + 1}"
+    Environment        = var.domain
     "Application Role" = var.role
-    Owner = var.owner
-    Customer = var.customer
-    Confidentiality = var.confidentiality
+    Owner              = var.owner
+    Customer           = var.customer
+    Confidentiality    = var.confidentiality
   }
 }
 

@@ -21,20 +21,20 @@ resource "aws_cloudwatch_metric_alarm" "alarm" {
   alarm_description         = "Monitors ec2 cpu utilization by Employee Directory App."
   insufficient_data_actions = []
 
-  alarm_actions             = [aws_sns_topic.user_updates.arn]
-  ok_actions                = [aws_sns_topic.user_updates.arn]
-  count = "${var.instance["count"] != 0 ? 1 : 0}"
+  alarm_actions = [aws_sns_topic.user_updates.arn]
+  ok_actions    = [aws_sns_topic.user_updates.arn]
+  count         = var.instance["count"] != 0 ? 1 : 0
 
-  dimensions= {
+  dimensions = {
     InstanceId = aws_instance.web-server.0.id
   }
 
   tags = {
-    Name = "alrm-Directory-app-CPU-util"
-    Environment = var.domain
+    Name               = "alrm-Directory-app-CPU-util"
+    Environment        = var.domain
     "Application Role" = var.role
-    Owner = var.owner
-    Customer = var.customer
-    Confidentiality = var.confidentiality
+    Owner              = var.owner
+    Customer           = var.customer
+    Confidentiality    = var.confidentiality
   }
 }

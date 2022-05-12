@@ -10,14 +10,14 @@
 ######################################################################
 
 resource "aws_launch_template" "web-server" {
-  name           = "template-Directory-app"
-  description    = "A web server for the employee directory application."
-  image_id       = data.aws_ami.amazon-linux-2.id
-  instance_type  = var.instance["instance_type"]
-  key_name       = aws_key_pair.deploy.key_name
+  name          = "template-Directory-app"
+  description   = "A web server for the employee directory application."
+  image_id      = data.aws_ami.amazon-linux-2.id
+  instance_type = var.instance["instance_type"]
+  key_name      = aws_key_pair.deploy.key_name
 
   vpc_security_group_ids = [aws_security_group.webserver-sg.id]
-  user_data              = "${filebase64("start-up.sh")}"
+  user_data              = filebase64("start-up.sh")
 
   credit_specification {
     cpu_credits = "standard"
@@ -33,24 +33,24 @@ resource "aws_launch_template" "web-server" {
 
 
   tags = {
-    Name = "lt-employee-directory-app"
-    Environment = var.domain
+    Name               = "lt-employee-directory-app"
+    Environment        = var.domain
     "Application Role" = var.role
-    Owner = var.owner
-    Customer = var.customer
-    Confidentiality = var.confidentiality
+    Owner              = var.owner
+    Customer           = var.customer
+    Confidentiality    = var.confidentiality
   }
 
   tag_specifications {
     resource_type = "instance"
 
     tags = {
-      Name = "i-employee-directory-app"
-      Environment = var.domain
+      Name               = "i-employee-directory-app"
+      Environment        = var.domain
       "Application Role" = var.role
-      Owner = var.owner
-      Customer = var.customer
-      Confidentiality = var.confidentiality
+      Owner              = var.owner
+      Customer           = var.customer
+      Confidentiality    = var.confidentiality
     }
   }
 }

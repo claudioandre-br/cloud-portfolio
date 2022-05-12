@@ -32,17 +32,17 @@ resource "aws_sns_topic" "user_updates" {
 EOF
 
   tags = {
-    Name = "sns-employee-app"
-    Environment = var.domain
+    Name               = "sns-employee-app"
+    Environment        = var.domain
     "Application Role" = var.role
-    Owner = var.owner
-    Customer = var.customer
-    Confidentiality = var.confidentiality
+    Owner              = var.owner
+    Customer           = var.customer
+    Confidentiality    = var.confidentiality
   }
 }
 
 resource "aws_sns_topic_subscription" "sns-topic" {
-  topic_arn               = aws_sns_topic.user_updates.arn
-  protocol                = "email"
-  endpoint                = var.admin_email
+  topic_arn = aws_sns_topic.user_updates.arn
+  protocol  = "email"
+  endpoint  = var.admin_email
 }

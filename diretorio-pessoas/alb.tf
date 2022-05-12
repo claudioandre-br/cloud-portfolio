@@ -22,12 +22,12 @@ resource "aws_lb" "app-elb" {
   }
 
   tags = {
-    Name = "alb-employee-directory-app"
-    Environment = var.domain
+    Name               = "alb-employee-directory-app"
+    Environment        = var.domain
     "Application Role" = var.role
-    Owner = var.owner
-    Customer = var.customer
-    Confidentiality = var.confidentiality
+    Owner              = var.owner
+    Customer           = var.customer
+    Confidentiality    = var.confidentiality
   }
 }
 

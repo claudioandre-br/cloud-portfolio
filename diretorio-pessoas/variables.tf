@@ -19,30 +19,30 @@
 # Set your AWS profile file AND/OR regions AND/OR the label.
 variable "profile_list" {
   description = "Your section inside the `~/.aws/credentials` profile file."
-  type = map(string)
+  type        = map(string)
   default = {
-    default = "rh"
-    testing = "rh-testing"
+    default    = "rh"
+    testing    = "rh-testing"
     production = "rh-production"
   }
 }
 
 variable "regions_list" {
   description = "AWS region to launch servers."
-  type = map(string)
+  type        = map(string)
   default = {
-    default = "us-east-1"
-    testing = "us-east-1"
+    default    = "us-east-1"
+    testing    = "us-east-1"
     production = "us-west-1"
   }
 }
 
 variable "environment_list" {
   description = "A label users might like to see."
-  type = map(string)
+  type        = map(string)
   default = {
-    default = "default"
-    testing = "DEV"
+    default    = "default"
+    testing    = "DEV"
     production = "PROD"
   }
 }
@@ -52,7 +52,7 @@ variable "environment_list" {
 # Change SSH information, use your own keys or create a new one.
 # Or run `$ ssh-keygen -t rsa -f workerKey`
 variable "private_key" {
-  default = "./workerKey"
+  default   = "./workerKey"
   sensitive = true
 }
 
@@ -61,19 +61,19 @@ variable "public_key" {
 }
 
 locals {
-  public_key_content = "${file("${var.public_key}")}"
+  public_key_content = file("${var.public_key}")
 }
 
 locals {
-  private_key_content = "${file("${var.private_key}")}"
-  sensitive = true
+  private_key_content = file("${var.private_key}")
+  sensitive           = true
 }
 # ####################################################################
 
 # TODO ###############################################################
 # Pick up your EC2 instances environment.
-variable instance {
-  type = object({instance_type = string, count = number})
+variable "instance" {
+  type = object({ instance_type = string, count = number })
   default = {
     instance_type = "t2.micro", count = 0
   }
@@ -83,9 +83,9 @@ variable instance {
 # TODO ###############################################################
 # Set your Spot preferences.
 variable "spot" {
-  type = string
+  type        = string
   description = "Use Spot instances? (yes or no)"
-  default = ""
+  default     = ""
 
   validation {
     condition = (
@@ -95,9 +95,9 @@ variable "spot" {
   }
 }
 variable "spot_price" {
-  type = number
+  type        = number
   description = "Use Spot instances?"
-  default = 0.0116
+  default     = 0.0116
 
   validation {
     condition = (
@@ -110,33 +110,33 @@ variable "spot_price" {
 
 # TODO ###############################################################
 # Set your e-mail for notifications.
-variable admin_email {
-  type = string
+variable "admin_email" {
+  type    = string
   default = "seuemail@provedor.com"
 }
 # ####################################################################
 
 # Tags ###############################################################
-variable domain {
-  type = string
+variable "domain" {
+  type    = string
   default = "HR"
 }
 
-variable role {
-  type = string
+variable "role" {
+  type    = string
   default = "AWS employee directory example"
 }
-variable owner {
-  type = string
+variable "owner" {
+  type    = string
   default = "User name"
 }
 
-variable customer {
-  type = string
+variable "customer" {
+  type    = string
   default = "Customer or Project Name"
 }
 
-variable confidentiality {
-  type = string
+variable "confidentiality" {
+  type    = string
   default = "Default"
 }

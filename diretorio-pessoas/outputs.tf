@@ -43,7 +43,7 @@ output "_040-webServer_count" {
 
 output "_050-webServer_ip_addresses" {
   description = "The IP address(es) of the instance(s)."
-  value = join(", ", "${aws_instance.web-server.*.public_ip}")
+  value       = join(", ", "${aws_instance.web-server.*.public_ip}")
 }
 
 # AZs

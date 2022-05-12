@@ -11,7 +11,7 @@
 
 resource "aws_cloudwatch_dashboard" "dashboard" {
   dashboard_name = "Instance-Dashboard"
-  count = "${var.instance["count"] != 0 ? 1 : 0}"
+  count          = var.instance["count"] != 0 ? 1 : 0
 
   dashboard_body = <<EOF
 {

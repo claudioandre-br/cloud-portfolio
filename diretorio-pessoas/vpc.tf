@@ -20,17 +20,17 @@ module "vpc" {
   public_subnets   = ["10.1.11.0/24", "10.1.12.0/24"]
   database_subnets = ["10.1.21.0/24", "10.1.22.0/24"]
 
-  create_igw = true
+  create_igw              = true
   map_public_ip_on_launch = true
 
   create_database_subnet_route_table = true
 
   tags = {
-    Environment = var.domain
+    Environment        = var.domain
     "Application Role" = var.role
-    Owner = var.owner
-    Customer = var.customer
-    Confidentiality = var.confidentiality
+    Owner              = var.owner
+    Customer           = var.customer
+    Confidentiality    = var.confidentiality
   }
 
   vpc_tags = {

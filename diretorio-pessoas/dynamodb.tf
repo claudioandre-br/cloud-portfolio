@@ -22,11 +22,11 @@ resource "aws_dynamodb_table" "dynamodb-table" {
   }
 
   tags = {
-    Name = "dynDB-Employees"
-    Environment = var.domain
+    Name               = "dynDB-Employees"
+    Environment        = var.domain
     "Application Role" = var.role
-    Owner = var.owner
-    Customer = var.customer
-    Confidentiality = var.confidentiality
+    Owner              = var.owner
+    Customer           = var.customer
+    Confidentiality    = var.confidentiality
   }
 }
