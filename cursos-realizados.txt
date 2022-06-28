@@ -1,4 +1,4 @@
-Lista de Cursos que eu fiz para:
+Lista parcial de Cursos que eu fiz para:
 - entender "de AWS";
 - e conseguir minha certificação AWS.
 
